@@ -1,0 +1,86 @@
+header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.ph_profil {
+    background: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    margin: 0 20px;
+
+    img {
+        width: 12.5rem;
+        height: 12.5rem;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    h2 {
+        color: #D3573C;
+        font-size: 64px;
+        font-weight: 400;
+    }
+
+    button {
+        background: #901C1C;
+        width: 170px;
+        height: 69px;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
+.ph_city {
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.ph_infos {
+    text-align: left;
+    h2 {
+        font-size: 64px;
+        font-weight: 400;
+        margin: 0 0 1rem 0;
+    }
+
+    .ph_city {
+        font-size: 24px;
+        margin: 0 0 1rem 0;
+    }
+
+    .ph_tagline {
+        font-size: 18px;
+        color: #525252;
+        margin: 0 0 1rem 0;
+    }
+
+    .ph-filter {
+        padding: 0;
+        margin: 0 0 1rem 0;
+    }
+}
+
+#box {
+    background: #DB8876;
+    width: 18rem;
+    height: 4.375rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: -1%;
+    right: 2.5rem;
+    padding: 0 2.1875rem;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-radius: .3125rem;
+}

@@ -1,10 +1,98 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ph_profil {
+  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  margin: 0 20px;
+}
+.ph_profil img {
+  width: 12.5rem;
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.ph_profil h2 {
+  color: #D3573C;
+  font-size: 64px;
+  font-weight: 400;
+}
+.ph_profil button {
+  background: #901C1C;
+  width: 170px;
+  height: 69px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ph_city {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.ph_infos {
+  text-align: left;
+}
+.ph_infos h2 {
+  font-size: 64px;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+}
+.ph_infos .ph_city {
+  font-size: 24px;
+  margin: 0 0 1rem 0;
+}
+.ph_infos .ph_tagline {
+  font-size: 18px;
+  color: #525252;
+  margin: 0 0 1rem 0;
+}
+.ph_infos .ph-filter {
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+#box {
+  background: #DB8876;
+  width: 18rem;
+  height: 4.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: -1%;
+  right: 2.5rem;
+  padding: 0 2.1875rem;
+  font-size: 1.2em;
+  font-weight: 500;
+  border-radius: 0.3125rem;
+}
+
 * {
   font-family: "DM Sans", sans-serif;
 }
 
+body {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 h1 {
   color: #901C1C;
+  font-weight: 400;
+  font-size: 1.8em;
 }
 
 header {
@@ -61,7 +149,6 @@ ul li {
   background: #DB8876;
   border-radius: 5px;
   width: 182px;
-  height: 30px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -69,7 +156,6 @@ ul li {
   padding: 5px;
   position: fixed;
   top: 2%;
-  display: none;
 }
 
 .logo {
@@ -80,6 +166,7 @@ ul li {
 .filtres {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -107,8 +194,27 @@ section img {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+.name {
+  margin-bottom: 0;
+  font-size: 36px;
+  font-weight: 400;
+}
+
 .location {
   color: #901C1C;
+  margin: 0.2rem;
+  font-size: 13px;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 10px;
+}
+
+.price {
+  color: #757575;
+  margin: 0;
+  font-size: 9px;
 }
 
 .filter {
