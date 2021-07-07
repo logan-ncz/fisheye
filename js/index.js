@@ -18,7 +18,7 @@ fetch(url)
     photographes.forEach(element => {
         console.log(element.name)
         myHTML += `<article>
-        <a href="photographers.html">
+        <a href="photographers.html?id=${element.id}">
           <img src="photos/Photographers ID Photos/${element.portrait}" alt="" />
           <h2 class="name">${element.name}</h2>
         </a>
