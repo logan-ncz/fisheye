@@ -10,7 +10,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2rem;
+  padding: 4rem;
   margin: 0 20px;
 }
 .ph_profil img {
@@ -34,9 +34,11 @@ header {
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
-  position: absolute;
-  top: 29%;
-  left: 35%;
+  position: relative;
+  bottom: 32%;
+}
+.ph_profil_header {
+  margin: 0;
 }
 
 .ph_city {
@@ -63,8 +65,8 @@ header {
   margin: 0 0 1rem 0;
 }
 .ph_infos .ph-filter {
+  justify-content: flex-start;
   padding: 0;
-  margin: 0 0 1rem 0;
 }
 
 #box {

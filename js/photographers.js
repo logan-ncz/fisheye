@@ -1,5 +1,3 @@
-console.log("ça marche")
-
 let url = "bdd/FishEyeData.json";
 
 fetch(url)
@@ -8,11 +6,7 @@ fetch(url)
 })
 .then( (datas) => {
 
-    console.log(datas)
-
     let photographersData = datas.photographers;
-
-    console.log(photographersData);
 
     const id = window.location.search.split("id=")[1];
 

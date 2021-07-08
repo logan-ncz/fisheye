@@ -1,5 +1,3 @@
-console.log("ça marche")
-
 let url = "bdd/FishEyeData.json";
 
 fetch(url)
@@ -8,15 +6,11 @@ fetch(url)
 })
 .then( (datas) => {
 
-    console.log(datas)
-
     let photographes = datas.photographers
-
-    console.log(photographes)
 
     let myHTML = ''
     photographes.forEach(element => {
-        console.log(element.name)
+
         myHTML += `<article>
         <a href="photographers.html?id=${element.id}">
           <img src="photos/Photographers ID Photos/${element.portrait}" alt="" />
@@ -36,8 +30,6 @@ fetch(url)
     
     });
     
-
-    console.log(myHTML)
 
     document.getElementById('photographers').innerHTML = myHTML
 
