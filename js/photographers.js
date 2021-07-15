@@ -8,11 +8,13 @@ fetch(url)
 
     let photographersData = datas.photographers;
 
-    const id = window.location.search.split("id=")[1];
+    const UrlParam = new URLSearchParams(window.location.search);
+    const id = UrlParam.get('id');
+    // const id = window.location.search.split("id=")[1];
 
     const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
 
-    const myHTML = `<article class="ph_profil">
+    const ph_profil = `<article class="ph_profil">
         <div class="ph_infos">
           <h2>${photographers[0].name}</h2>
           <p class="ph_city">${photographers[0].city}, ${photographers[0].country}</p>
@@ -28,8 +30,38 @@ fetch(url)
         //Je crée mon HTML pour l'intégrer a la page
   
 
-    document.getElementById('ph_profil_header').innerHTML = myHTML;
+    document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
+      
+    })
+.catch((err) =>{
+      console.error(err)
+});
+
+
+fetch(url)
+.then( (datas) => {
+  
+  let media = datas.media
+
+  let ph_work_elt = ''
+  media.forEach(element => {
+    if (id == element.photographerId) {
+      ph_work_elt = `<article class="ph_work_elt">
+    <a href="" title="Lonesome">
+      <img class="ph_media" src="${element.image}" alt="">
+    </a>
+    <div class="ph_work_elt_text">
+      <h2 class="ph_work_title">${element.title}</h2>
+      <div class="ph_elt_like">
+        <span class="ph_work_like">88</span>
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
+  </article>`
+  
+  document.getElementById('ph_work_elt').innerHTML = ph_work_elt;
+  }})
 })
 .catch((err) =>{
     console.error(err)

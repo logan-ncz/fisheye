@@ -85,6 +85,38 @@ header {
   border-radius: 0.3125rem;
 }
 
+.sort-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.ph_media {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.ph_work_elt {
+  margin: 2em;
+  color: #901C1C;
+}
+
+.ph_work_elt_text {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.ph_work_elt_text .ph_work_title {
+  font-weight: 400;
+  font-size: 1.1em;
+}
+.ph_work_elt_text i {
+  width: 17.5px;
+  color: #901C1C;
+}
+
 * {
   font-family: "DM Sans", sans-serif;
 }
