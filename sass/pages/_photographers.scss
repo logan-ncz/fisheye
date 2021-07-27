@@ -96,6 +96,11 @@ header {
     font-weight: 700;
 }
 
+#sort-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .ph_media {
     width: 350px;
     height: 300px;
