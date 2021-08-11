@@ -96,6 +96,24 @@ header {
     font-weight: 700;
 }
 
+.sort-btn {
+    background: #901C1C;
+    color: white;
+    width: 170px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+
+    i {
+        position: relative;
+        right: -10%;
+        bottom: -4%;
+    }
+
+}
+
+
 #sort-wrapper {
     display: flex;
     flex-wrap: wrap;

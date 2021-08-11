@@ -37,6 +37,53 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
 
 
+
+function renderMedia(element) {
+  
+
+  
+
+  function render(element) {
+    function imageFactory() {
+      function createHTML(element) {
+        let eltImage = document.createElement('img');
+        eltImage.setAttribute('src', element.image);
+        eltImage.setAttribute('alt', element.alt);
+        eltImage.setAttribute('role', 'button');
+        eltImage.className = 'ph_media';
+    
+        return eltImage;
+      }
+
+      return createHTML(element);
+    }
+
+    function videoFactory() {
+      function createHTML(element) {
+        let eltVideo = document.createElement('video');
+        eltVideo.setAttribute("controls", "controls")
+        eltVideo.setAttribute('src', element.video);
+        eltVideo.setAttribute('role', 'button');
+        eltVideo.className = 'ph_media';
+    
+        return eltVideo;
+      }
+  
+      return createHTML(element);
+    }
+
+    let factory = null;
+    if (element.hasOwnProperty('image')) {
+        factory = imageFactory();
+    } else if (element.hasOwnProperty('video')) {
+        factory = videoFactory();
+    }
+    return factory;
+  }
+
+  return render(element);
+}
+
 new apiFishEye().getDataFishEye().then( (datas) => {
   
   let mediaData = datas.media
@@ -48,9 +95,11 @@ new apiFishEye().getDataFishEye().then( (datas) => {
   mediaData.forEach(element => {
     if (id == element.photographerId) {
 
+      let mediaHTML = renderMedia(element);
+
       let template = `<article class="ph_work_elt">
-      <a href="" title="Lonesome">
-        <img class="ph_media" src="${element.image}" alt="">
+      <a href='#' title=${element.photoName}>
+        ${mediaHTML.outerHTML}
       </a>
       <div class="ph_work_elt_text">
         <h2 class="ph_work_title">${element.title}</h2>
@@ -69,3 +118,9 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 .catch((err) =>{
     console.error(err)
 });
+
+function dropDown() {
+
+  
+
+}
