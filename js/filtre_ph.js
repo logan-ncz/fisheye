@@ -1,22 +1,76 @@
-function MaFactoryMethode(name){
+// function MaFactoryMethode(name){
    
-    let mavariable = name
+//     let mavariable = name
 
-    function affiche(){
-        console.log(this.mavariable)
-    }
+//     function affiche(){
+//         console.log(this.mavariable)
+//     }
 
-    return {
-        mavariable,
-        affiche
-    }
-};
+//     return {
+//         mavariable,
+//         affiche
+//     }
+// };
 
-export default class Filter {
+// export default class Filter {
 
-    filterTags() {
+//     filterTags() {
+//         let filtres = document.querySelector('ul');
+//         let articles = document.querySelector('articlePh');
+    
+//         filtres.addEventListener('click', event => {
+//             let classValue = event.target.classList.value;
+    
+//             if (-1 === classValue.indexOf('activated')) {
+//                 event.target.classList.add('activated')
+//             } else {
+//                 event.target.classList.remove('activated')
+//             }
+    
+//             this.sortDomArticle(articles);
+//         });
+//     }
+
+//     getActiveFilters() {
+//         let currentFilters = document.querySelectorAll('ul li.activated');
+//         let filterSelected = []
+
+//         currentFilters.forEach(function (currentFilter) {
+//             filterSelected.push(currentFilter.getAttribute("data-filter"));
+//         });
+
+//         return filterSelected;
+//     }
+
+//     ownAllFilters(article) {
+//         let filters = this.getActiveFilters();
+//         let classValue = article.classList.value;
+//         let classes = classValue.split(' ');
+//         let intersection = filters.filter(
+//             x => classes.includes(x)
+//         );
+
+//         return filters.length == intersection.length;
+//     }
+
+//     sortDomArticle(articles) {
+//         articles.forEach((article) => {
+//             if (this.ownAllFilters(article)) {
+//                 article.style.display = 'block';
+//             } else {
+//                 article.style.display = 'none';
+//             }
+//         });
+//     }
+// }
+
+
+export default function FilterFactory() {
+    let articles = [];
+    
+    function filterTags() {
         let filtres = document.querySelector('ul');
-        let articles = document.querySelector('articlePh');
+        articles = document.querySelectorAll('.articlePh');
     
         filtres.addEventListener('click', event => {
             let classValue = event.target.classList.value;
@@ -29,11 +83,29 @@ export default class Filter {
     
             this.sortDomArticle(articles);
         });
+
+        (function phFilters() {          //Filtres en dessous de chaque photographe qui ne marchent pas
+            
+            let photographersFilter = document.querySelectorAll('.filter');
+            
+            photographersFilter.addEventListener('click', event => {
+                let classValue = event.target.classList.value;
+        
+                if (-1 === classValue.indexOf('activated')) {
+                    event.target.classList.add('activated')
+                } else {
+                    event.target.classList.remove('activated')
+                }
+        
+                this.sortDomArticle(articles);
+            });
+        })
+
     }
 
-    getActiveFilters() {
+    function getActiveFilters() {
         let currentFilters = document.querySelectorAll('ul li.activated');
-        let filterSelected = []
+        let filterSelected = [];
 
         currentFilters.forEach(function (currentFilter) {
             filterSelected.push(currentFilter.getAttribute("data-filter"));
@@ -42,7 +114,7 @@ export default class Filter {
         return filterSelected;
     }
 
-    ownAllFilters(article) {
+    function ownAllFilters(article) {
         let filters = this.getActiveFilters();
         let classValue = article.classList.value;
         let classes = classValue.split(' ');
@@ -53,7 +125,7 @@ export default class Filter {
         return filters.length == intersection.length;
     }
 
-    sortDomArticle(articles) {
+    function sortDomArticle(articles) {
         articles.forEach((article) => {
             if (this.ownAllFilters(article)) {
                 article.style.display = 'block';
@@ -62,5 +134,12 @@ export default class Filter {
             }
         });
     }
-}
 
+    return {
+        articles,
+        filterTags,
+        getActiveFilters,
+        ownAllFilters,
+        sortDomArticle,
+    }
+}

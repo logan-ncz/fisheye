@@ -1,12 +1,9 @@
-let url = "bdd/FishEyeData.json";
+import apiFishEye from './apiFishEye.js'
 
-fetch(url)
-.then( (datas) =>{
-    return datas.json()
-})
-.then( (datas) => {
 
-    let photographersData = datas.photographers;
+new apiFishEye().getDataFishEye().then( (datas) => {
+
+    let photographersData = datas.photographers
 
     const UrlParam = new URLSearchParams(window.location.search);
     const id = UrlParam.get('id');
@@ -39,29 +36,35 @@ fetch(url)
 });
 
 
-fetch(url)
-.then( (datas) => {
-  
-  let media = datas.media
 
-  let ph_work_elt = ''
-  media.forEach(element => {
-    if (id == element.photographerId) {
-      ph_work_elt = `<article class="ph_work_elt">
-    <a href="" title="Lonesome">
-      <img class="ph_media" src="${element.image}" alt="">
-    </a>
-    <div class="ph_work_elt_text">
-      <h2 class="ph_work_title">${element.title}</h2>
-      <div class="ph_elt_like">
-        <span class="ph_work_like">88</span>
-        <i class="fas fa-heart"></i>
-      </div>
-    </div>
-  </article>`
+new apiFishEye().getDataFishEye().then( (datas) => {
   
-  document.getElementById('ph_work_elt').innerHTML = ph_work_elt;
+  let mediaData = datas.media
+
+  const UrlParam = new URLSearchParams(window.location.search);
+
+  const id = UrlParam.get('id');
+
+  mediaData.forEach(element => {
+    if (id == element.photographerId) {
+
+      let template = `<article class="ph_work_elt">
+      <a href="" title="Lonesome">
+        <img class="ph_media" src="${element.image}" alt="">
+      </a>
+      <div class="ph_work_elt_text">
+        <h2 class="ph_work_title">${element.title}</h2>
+        <div class="ph_elt_like">
+          <span class="ph_work_like">88</span>
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+    </article>`
+
+    document.getElementById('sort-wrapper').innerHTML += template;
   }})
+
+  return this;
 })
 .catch((err) =>{
     console.error(err)

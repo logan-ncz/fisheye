@@ -1,46 +1,57 @@
-import apiFishEye from './provider/apiFishEye.js';
-import photographerProfil from "./photographerProfil.js";
-import dropDownMenu from './photographers/dropDownSort.js';
-import mediaBuilder from './photographers/mediaBuilder.js';
-import homePageBuilder from './Home/homePageBuilder.js'
+import FilterFactory from './filtre_ph.js'
+
+let url = "bdd/FishEyeData.json";
+
+fetch(url)
+.then( (datas) =>{
+    return datas.json()
+})
+.then( (datas) => {
 
 
-(function appDispatch() {
-  new apiFishEye().getDataFishEye().then((data) => {
-      if (window.location.pathname.includes("/photographers.html")) {
-          // PHOTOGRAPHER PROFIL HEADER
-          new photographerProfil().displayPhotographerProfil(data);
+    let photographes = datas.photographers;
 
-          // DROPDOWN MENU
-          new dropDownMenu().dropDown(data);
+    
 
-          //PHOTOGRAPHER GALLERY & LIKES BOX
-          new mediaBuilder().photographersMedias(data);
-          return
-      }
-      // HOMEPAGE (PHOTOGRAPHERS, SCROLL, FILTER)
-      new homePageBuilder().displayPhotographers(data);
-  }).catch(() => {
-      console.error('Failed to load ApiFishEye');
-  })
-})();
+    let myHTML = '';
 
+    photographes.forEach(element => {
 
-// fetch(url)
-//   .then((datas) => {
-//     return datas.json();
-//   })
-//   .then((datas) => {
-//     let photographes = datas.photographers;
+        let sectionPhotographers = document.getElementById('photographers');
 
-//     console.log(photographes)
+        let articlePhotographers = document.createElement('article');
 
-//     let Set_upFonction = Set_up();
-//     Set_upFonction.SetPhotographe(photographes);
-//     let filterFonction = Filter();
-//     filterFonction.filterTags(photographes);
-//   })
+        articlePhotographers.className = element.tags.join(' ') + ' articlePh';
 
-//   .catch((err) => {
-//     console.error(err);
-//   });
+        myHTML = `
+        <a href="photographers.html?id=${element.id}">
+          <img src="photos/Photographers ID Photos/${element.portrait}" alt="" />
+          <h2 class="name">${element.name}</h2>
+        </a>
+        <p class="location">${element.city}, ${element.country}</p>
+        <p class="tagline">${element.tagline}</p>
+        <p class="price">${element.price}€/jour</p>
+        <ul class="filter">${element.tags.map(tag =>
+            `<li data-filter="${tag}">#${tag}</li>`).join(" ")}
+        </ul>`
+
+      
+
+        //Je crée mon HTML pour l'intégrer a la page
+    
+        sectionPhotographers.appendChild(articlePhotographers);
+
+        articlePhotographers.innerHTML = myHTML;
+    });
+    
+
+    
+
+    const MonObjectFilterFactory = FilterFactory();
+    console.log(MonObjectFilterFactory);
+    MonObjectFilterFactory.filterTags();
+})
+
+.catch((err) =>{
+    console.error(err)
+});
