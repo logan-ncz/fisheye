@@ -110,7 +110,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
       </div>
     </article>`
 
-    document.getElementById('sort-wrapper').innerHTML += template;
+    document.getElementById('ph_works').innerHTML += template;
   }})
 
   return this;
@@ -120,6 +120,8 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 });
 
 function dropDown() {
+  let sort_btn = document.getElementsByClassName('sort-btn');
+
 
   
 

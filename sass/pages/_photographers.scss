@@ -92,7 +92,7 @@ header {
 }
 
 .sort-text {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -113,8 +113,19 @@ header {
 
 }
 
+.works-sort {
+    display: flex;
+    align-items: center;
+
+}
 
 #sort-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1em;
+}
+
+#ph_works {
     display: flex;
     flex-wrap: wrap;
 }
