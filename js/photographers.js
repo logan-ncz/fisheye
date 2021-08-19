@@ -176,7 +176,7 @@ class Lightbox {
     </div>
     <i class="lightbox_close_icon fa fa-times"></i>
     <i class="arrow_right fas fa-chevron-right"></i>`;
-    dom.querySelector('.lightbox-close').addEventListener('click', this.close.bind(this));
+    dom.querySelector('.lightbox_close_icon').addEventListener('click', this.close.bind(this));
     return dom;
   }
 

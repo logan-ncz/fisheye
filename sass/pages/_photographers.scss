@@ -219,3 +219,49 @@ header {
     }
 
 }
+
+.ph_form {
+    display: none;
+    background: #DB8876;
+    padding: 2em;
+    position: fixed;
+    top: 2%;
+    margin: auto;
+    // display: flex;
+    flex-direction: column;
+    left: 25%;
+    right: 25%;
+    border-radius: 0.3em;
+    box-shadow: 0px 0px 0px black;
+
+    h1 {
+        color: black;
+    }
+
+    label {
+        color: #312E2E;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        margin: 1em;
+    }
+
+    #prenom, #nom, #email{
+        height: 3em;
+    }
+
+    #message {
+        height: 10em;
+    }
+
+    #envoyer {
+        background: #901C1C;
+        color: white;
+        border: none;
+        width: 10em;
+        height: 3em;
+        border-radius: 0.3em;
+    }
+}
