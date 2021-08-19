@@ -39,49 +39,46 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
 
 function renderMedia(element) {
+
+  const elementFactory = element;
   
-
-  
-
-  function render(element) {
-    function imageFactory() {
-      function createHTML(element) {
-        let eltImage = document.createElement('img');
-        eltImage.setAttribute('src', element.image);
-        eltImage.setAttribute('alt', element.alt);
-        eltImage.setAttribute('role', 'button');
-        eltImage.className = 'ph_media';
-    
-        return eltImage;
-      }
-
-      return createHTML(element);
-    }
-
-    function videoFactory() {
-      function createHTML(element) {
-        let eltVideo = document.createElement('video');
-        eltVideo.setAttribute("controls", "controls")
-        eltVideo.setAttribute('src', element.video);
-        eltVideo.setAttribute('role', 'button');
-        eltVideo.className = 'ph_media';
-    
-        return eltVideo;
-      }
-  
-      return createHTML(element);
-    }
-
+  function choiceElement() {
     let factory = null;
-    if (element.hasOwnProperty('image')) {
-        factory = imageFactory();
+    if (this.elementFactory.hasOwnProperty('image')) {
+        factory = this.createHTMLImage();
     } else if (element.hasOwnProperty('video')) {
-        factory = videoFactory();
+        factory = this.createHTMLVideo();
     }
+
     return factory;
   }
 
-  return render(element);
+  function createHTMLImage() {
+    let eltImage = document.createElement('img');
+    eltImage.setAttribute('src', this.elementFactory.image);
+    eltImage.setAttribute('alt', this.elementFactory.alt);
+    eltImage.setAttribute('role', 'button');
+    eltImage.className = 'ph_media';
+
+    return eltImage;
+  }
+
+  function createHTMLVideo() {
+    let eltVideo = document.createElement('video');
+    eltVideo.setAttribute("controls", "controls")
+    eltVideo.setAttribute('src', this.elementFactory.video);
+    eltVideo.setAttribute('role', 'button');
+    eltVideo.className = 'ph_media';
+
+    return eltVideo;
+  }
+
+  return {
+    elementFactory,
+    choiceElement,
+    createHTMLImage,
+    createHTMLVideo
+  }
 }
 
 new apiFishEye().getDataFishEye().then( (datas) => {
@@ -95,16 +92,17 @@ new apiFishEye().getDataFishEye().then( (datas) => {
   mediaData.forEach(element => {
     if (id == element.photographerId) {
 
-      let mediaHTML = renderMedia(element);
+      let MediaFactory = renderMedia(element);
+      let mediaHTML = MediaFactory.choiceElement();
 
       let template = `<article class="ph_work_elt">
-      <a href='#' title=${element.photoName}>
+      <a class="ph_media_link" href='${element.image}' title=${element.title}>
         ${mediaHTML.outerHTML}
       </a>
       <div class="ph_work_elt_text">
         <h2 class="ph_work_title">${element.title}</h2>
         <div class="ph_elt_like">
-          <span class="ph_work_like">88</span>
+          <span class="ph_work_like">${element.likes}</span>
           <i class="fas fa-heart"></i>
         </div>
       </div>
@@ -119,10 +117,83 @@ new apiFishEye().getDataFishEye().then( (datas) => {
     console.error(err)
 });
 
-function dropDown() {
-  let sort_btn = document.getElementsByClassName('sort-btn');
+// let lightbox = document.getElementsByClassName('lightbox');
 
+// let ph_work_elt = document.querySelectorAll('.ph_work_elt');
 
-  
+// ph_work_elt.forEach((a) => a.addEventListener("click", openLightbox));
+
+// function openLightbox() {
+//   lightbox.style.display = 'block';
+//   console.log('ca marche');
+// }
+
+class Lightbox {
+
+  static init() {
+    const ph_medias = document.querySelectorAll('.ph_media_link')
+      .forEach(ph_media => ph_media.addEventListener('click', e =>
+      {
+        e.preventDefault()
+        new Lightbox(e.currentTarget.getAttribute('href'))
+      }))
+  }
+
+  /** 
+  *@param {string} url URL des medias
+  *@return {HTMLElement}
+  */
+
+  constructor(url) {
+    const element = this.buildDom(url);
+    document.body.appendChild(element);
+  }
+
+  /** 
+  * ferme la lightbox
+  *@param {MouseEvent} e
+  */
+
+  close(e) {
+    e.preventDefault();
+    this.element.parentElement.removeChild(this.element);
+  }
+
+  /** 
+  *@param {string} url URL des medias
+  */
+
+  buildDom(url) {
+    const dom = document.createElement('div');
+    dom.classList.add('lightbox');
+    dom.innerHTML = `<i class="arrow_left fas fa-chevron-left"></i>
+
+    <div>
+
+      <img src="photos/Mimi/Animals_Rainbow.jpg" alt="">
+      <h2 class="lightbox_title">Rainbow Bird</h2>
+
+    </div>
+    <i class="lightbox_close_icon fa fa-times"></i>
+    <i class="arrow_right fas fa-chevron-right"></i>`;
+    dom.querySelector('.lightbox-close').addEventListener('click', this.close.bind(this));
+    return dom;
+  }
 
 }
+
+Lightbox.init()
+
+
+
+// (function dropDown() {
+//   let dropDownMenu = document.getElementById('sort-wrapper');
+
+//   dropDownMenu.addEventListener('click', event => {
+//     let dropDownMenuOpen = document.getElementsByClassName('sort-wrapper-open');
+
+//     dropDownMenu.style.display = 'none';
+
+//     dropDownMenuOpen.style.display = 'display';
+//   });
+// });

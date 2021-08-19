@@ -85,12 +85,20 @@ header {
   border-radius: 0.3125rem;
 }
 
-.sort-text {
+.works-sort {
+  display: flex;
+  align-items: center;
+}
+.works-sort .sort-text {
   font-size: 1.2rem;
   font-weight: 700;
 }
-
-.sort-btn {
+.works-sort .sort-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1em;
+}
+.works-sort .sort-wrapper .sort-btn {
   background: #901C1C;
   color: white;
   width: 170px;
@@ -99,21 +107,16 @@ header {
   font-size: 18px;
   font-weight: 700;
 }
-.sort-btn i {
+.works-sort .sort-wrapper .sort-btn i {
   position: relative;
   right: -10%;
   bottom: -4%;
 }
-
-.works-sort {
-  display: flex;
-  align-items: center;
-}
-
-#sort-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 1em;
+.works-sort .sort-wrapper-open {
+  display: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 #ph_works {
@@ -146,6 +149,47 @@ header {
 .ph_work_elt_text i {
   width: 17.5px;
   color: #901C1C;
+}
+
+.lightbox {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+.lightbox img {
+  padding: 0;
+  width: 44%;
+  height: 90%;
+  object-fit: cover;
+  margin-top: 1em;
+}
+.lightbox div {
+  width: 64%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lightbox div h2 {
+  text-align: left;
+  color: #901C1C;
+  font-weight: 400;
+  font-size: 24px;
+  width: 44%;
+}
+.lightbox .arrow_left, .lightbox .arrow_right {
+  color: #901C1C;
+  font-size: 3em;
+}
+.lightbox .lightbox_close_icon {
+  position: relative;
+  top: -38%;
+  color: #901C1C;
+  font-size: 3em;
 }
 
 * {

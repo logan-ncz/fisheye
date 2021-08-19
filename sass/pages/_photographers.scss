@@ -91,39 +91,51 @@ header {
     border-radius: .3125rem;
 }
 
-.sort-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
 
-.sort-btn {
-    background: #901C1C;
-    color: white;
-    width: 170px;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 700;
 
-    i {
-        position: relative;
-        right: -10%;
-        bottom: -4%;
-    }
 
-}
 
 .works-sort {
     display: flex;
     align-items: center;
 
+    .sort-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .sort-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 1em;
+    
+        .sort-btn {
+            background: #901C1C;
+            color: white;
+            width: 170px;
+            height: 50px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 700;
+        
+            i {
+                position: relative;
+                right: -10%;
+                bottom: -4%;
+            }
+        
+        }
+    
+        &-open {
+            display: none;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    
 }
 
-#sort-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 1em;
-}
 
 #ph_works {
     display: flex;
@@ -157,4 +169,53 @@ header {
         width: 17.5px;
         color: #901C1C;
     }
+}
+
+.lightbox {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    
+    img {
+        padding: 0;
+        width: 44%;
+        height: 90%;
+        object-fit: cover;
+        margin-top: 1em;
+    }
+
+    
+
+    div {
+        width: 64%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            text-align: left;
+            color: #901C1C;
+            font-weight: 400;
+            font-size: 24px;
+            width: 44%;
+        }
+    }
+
+    .arrow_left, .arrow_right {
+        color: #901C1C;
+        font-size: 3em;
+    }
+
+    .lightbox_close_icon {
+        position: relative;
+        top: -38%;
+        color: #901C1C;
+        font-size: 3em;
+    }
+
 }
