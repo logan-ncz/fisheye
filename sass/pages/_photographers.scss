@@ -172,7 +172,7 @@ header {
 }
 
 .lightbox {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -206,7 +206,7 @@ header {
         }
     }
 
-    .arrow_left, .arrow_right {
+    .lightbox__prev, .lightbox__next {
         color: #901C1C;
         font-size: 3em;
     }
