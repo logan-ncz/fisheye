@@ -181,7 +181,7 @@ header {
   font-size: 24px;
   width: 44%;
 }
-.lightbox .arrow_left, .lightbox .arrow_right {
+.lightbox .lightbox__prev, .lightbox .lightbox__next {
   color: #901C1C;
   font-size: 3em;
 }

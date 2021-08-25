@@ -94,9 +94,10 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
       let MediaFactory = renderMedia(element);
       let mediaHTML = MediaFactory.choiceElement();
+      // console.log(mediaHTML)
 
       let template = `<article class="ph_work_elt">
-      <a class="ph_media_link" href='${element.image}' title=${element.title}>
+      <a class="ph_media_link" href='${mediaHTML.src}' title=${element.title}>
         ${mediaHTML.outerHTML}
       </a>
       <div class="ph_work_elt_text">
@@ -132,7 +133,12 @@ class Lightbox {
     const ph_medias = Array.from(document.querySelectorAll('.ph_media_link'));
     // console.log("hey" ,ph_medias)
 
-    const gallery = ph_medias.map(ph_media => ph_media.getAttribute('href'))
+    const gallery = ph_medias.map(ph_media => ph_media.innerHTML)
+    
+
+    console.log(gallery)
+
+    
     // debugger
     ph_medias.forEach(ph_media => ph_media.addEventListener('click', e =>
       {
@@ -161,13 +167,24 @@ class Lightbox {
    */
 
   loadImage(url) {
+    // console.log(url)
     this.url = null
-    const image = new Image()
-    const container = this.element.querySelector('.lightbox__container')
-    container.innerHTML = ``
-    container.appendChild(image)
-    this.url = url
-    image.src = url
+    // const image = new Image()
+    // const lightbox = document.querySelector('.lightbox')
+    // const container = lightbox.querySelector('.lightbox__container')
+    // container.innerHTML = ``
+    // container.appendChild(image)
+    // this.url = url
+    // image.src = url
+    let MediaFactory = renderMedia(url);
+    let mediaHTML = MediaFactory.choiceElement();
+    console.log(mediaHTML)
+    let media = url
+    console.log(media)
+    const lightbox = document.querySelector('.lightbox')
+    const container = lightbox.querySelector('.lightbox__container')
+    container.innerHTML = media
+    // container.appendChild(media)
   }
 
   /**
@@ -201,8 +218,11 @@ class Lightbox {
 
   next(e) {
     e.preventDefault()
-    let i = this.images.findIndex(image => image === this.url)
-    this.loadImage(this.images[i + 1])
+    let i = this.gallery.findIndex(image => image === this.url)
+    if (i === this.gallery.length - 1) {
+      i = -1
+    }
+    this.loadImage(this.gallery[i + 1])
   }
   
   /** 
@@ -211,7 +231,11 @@ class Lightbox {
 
   prev(e) {
     e.preventDefault()
-
+    let i = this.gallery.findIndex(image => image === this.url)
+    if (i === 0) {
+      i = this.gallery.length
+    }
+    this.loadImage(this.gallery[i - 1])
   }
 
   /** 
