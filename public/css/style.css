@@ -24,7 +24,10 @@ header {
   font-size: 64px;
   font-weight: 400;
 }
-.ph_profil button {
+.ph_profil .modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #901C1C;
   width: 170px;
   height: 69px;
@@ -88,6 +91,8 @@ header {
 .works-sort {
   display: flex;
   align-items: center;
+  width: 95%;
+  margin: auto;
 }
 .works-sort .sort-text {
   font-size: 1.2rem;
@@ -103,9 +108,11 @@ header {
   color: white;
   width: 170px;
   height: 50px;
+  border: none;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: -1%;
 }
 .works-sort .sort-wrapper .sort-btn i {
   position: relative;
@@ -115,8 +122,12 @@ header {
 .works-sort .sort-wrapper-open {
   display: none;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+}
+.works-sort .sort-wrapper-open .sort-btn {
+  border-bottom: solid white;
+}
+.works-sort .sort-wrapper-open .sort-btn__last {
+  border-bottom: none;
 }
 
 #ph_works {
@@ -195,7 +206,7 @@ header {
 .ph_form {
   display: none;
   background: #DB8876;
-  padding: 2em;
+  padding: 1em 2em;
   position: fixed;
   top: 2%;
   margin: auto;
@@ -204,20 +215,32 @@ header {
   right: 25%;
   border-radius: 0.3em;
   box-shadow: 0px 0px 0px black;
+  width: 35%;
 }
 .ph_form h1 {
+  margin: 0;
   color: black;
+  font-size: 50px;
+}
+.ph_form .form-close {
+  font-size: 3em;
+  color: white;
+  position: absolute;
+  top: 4%;
+  right: 5%;
 }
 .ph_form label {
   color: #312E2E;
+  font-size: 25px;
 }
 .ph_form div {
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  margin: 0.4em 0;
 }
 .ph_form #prenom, .ph_form #nom, .ph_form #email {
   height: 3em;
+  border-radius: 5px;
 }
 .ph_form #message {
   height: 10em;
@@ -227,7 +250,7 @@ header {
   color: white;
   border: none;
   width: 10em;
-  height: 3em;
+  height: 4em;
   border-radius: 0.3em;
 }
 

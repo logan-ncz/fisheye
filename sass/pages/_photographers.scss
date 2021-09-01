@@ -25,7 +25,10 @@ header {
         font-weight: 400;
     }
 
-    button {
+    .modal-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: #901C1C;
         width: 170px;
         height: 69px;
@@ -98,6 +101,8 @@ header {
 .works-sort {
     display: flex;
     align-items: center;
+    width: 95%;
+    margin: auto;
 
     .sort-text {
         font-size: 1.2rem;
@@ -114,9 +119,12 @@ header {
             color: white;
             width: 170px;
             height: 50px;
+            border: none;
             border-radius: 5px;
             font-size: 18px;
             font-weight: 700;
+            margin-bottom: -1%;
+            
         
             i {
                 position: relative;
@@ -129,8 +137,14 @@ header {
         &-open {
             display: none;
             flex-direction: column;
-            margin: 0;
-            padding: 0;
+
+            .sort-btn {
+                border-bottom: solid white;
+
+                &__last {
+                    border-bottom: none;
+                }
+            }
         }
     }
     
@@ -221,9 +235,9 @@ header {
 }
 
 .ph_form {
-    display: none;
+    display: none; //display: flex;
     background: #DB8876;
-    padding: 2em;
+    padding: 1em 2em;
     position: fixed;
     top: 2%;
     margin: auto;
@@ -233,23 +247,36 @@ header {
     right: 25%;
     border-radius: 0.3em;
     box-shadow: 0px 0px 0px black;
+    width: 35%;
 
     h1 {
+        margin: 0;
         color: black;
+        font-size: 50px;
+    }
+
+    .form-close {
+        font-size: 3em;
+        color: white;
+        position: absolute;
+        top: 4%;
+        right: 5%;
     }
 
     label {
         color: #312E2E;
+        font-size: 25px;
     }
 
     div {
         display: flex;
         flex-direction: column;
-        margin: 1em;
+        margin: 0.4em 0;
     }
 
     #prenom, #nom, #email{
         height: 3em;
+        border-radius: 5px;
     }
 
     #message {
@@ -261,7 +288,7 @@ header {
         color: white;
         border: none;
         width: 10em;
-        height: 3em;
+        height: 4em;
         border-radius: 0.3em;
     }
 }

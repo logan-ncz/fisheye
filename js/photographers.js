@@ -20,7 +20,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
             `<li data-filter="${tag}">#${tag}</li>`).join(" ")}
           </ul>
         </div>
-        <button>Contactez-moi</button>
+        <span class="modal-btn">Contactez-moi</span>
         <img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="" />
       </article>`
 
@@ -29,7 +29,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
     document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
-      
+    launchform();  
     })
 .catch((err) =>{
       console.error(err)
@@ -130,13 +130,13 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 class Lightbox {
 
   static init() {
-    const ph_medias = Array.from(document.querySelectorAll('.ph_media_link'));
-    // console.log("hey" ,ph_medias)
+    const ph_medias = document.querySelectorAll('.ph_media');
+    console.log("hey" ,ph_medias)
 
-    const gallery = ph_medias.map(ph_media => ph_media.innerHTML)
+    // const gallery = ph_medias
     
 
-    console.log(gallery)
+    // console.log(gallery)
 
     
     // debugger
@@ -144,20 +144,20 @@ class Lightbox {
       {
         // console.log('click')
         e.preventDefault()
-        new Lightbox(e.currentTarget.getAttribute('href'), gallery)
+        new Lightbox(e.currentTarget.getAttribute('src'), ph_medias)
       }))
   }
 
   /** 
   *@param {string} url URL des medias
-  *@param {string[]} gallery Chemin des medias de la Lightbox
+  *@param {string[]} ph_medias Chemin des medias de la Lightbox
   */
 
-  constructor(url, gallery) {
+  constructor(url, ph_medias) {
     // console.log(url)
     const element = this.buildDom(url);
     // console.log(element)
-    this.gallery = gallery
+    this.url = url
     this.onKeyUp = this.onKeyUp.bind(this);
     document.body.appendChild(element);
     document.addEventListener('keyup', this.onKeyUp);
@@ -167,8 +167,8 @@ class Lightbox {
    */
 
   loadImage(url) {
-    // console.log(url)
-    this.url = null
+    console.log(url , this.ph_medias)
+    // this.url = null
     // const image = new Image()
     // const lightbox = document.querySelector('.lightbox')
     // const container = lightbox.querySelector('.lightbox__container')
@@ -205,10 +205,9 @@ class Lightbox {
   close(e) {
     e.preventDefault()
     const lightbox = document.querySelector('.lightbox')
-    lightbox.classList.add('fadeOut')
     window.setTimeout(() => {
       lightbox.parentElement.removeChild(lightbox)
-    }, 100)
+    }, 0)
     document.removeEventListener('keyup', this.onKeyUp);
   }
 
@@ -218,11 +217,13 @@ class Lightbox {
 
   next(e) {
     e.preventDefault()
-    let i = this.gallery.findIndex(image => image === this.url)
-    if (i === this.gallery.length - 1) {
+    const ph_medias = document.querySelectorAll('.ph_media');
+
+    let i = ph_medias.item(image => image === this.ph_medias)
+    if (i === ph_medias.length - 1) {
       i = -1
     }
-    this.loadImage(this.gallery[i + 1])
+    this.loadImage(ph_medias[i + 1])
   }
   
   /** 
@@ -231,11 +232,11 @@ class Lightbox {
 
   prev(e) {
     e.preventDefault()
-    let i = this.gallery.findIndex(image => image === this.url)
+    let i = this.ph_medias.findIndex(image => image === this.ph_medias)
     if (i === 0) {
-      i = this.gallery.length
+      i = this.ph_medias.length
     }
-    this.loadImage(this.gallery[i - 1])
+    this.loadImage(this.ph_medias[i - 1])
   }
 
   /** 
@@ -263,20 +264,54 @@ class Lightbox {
 }
 
 
-
-
-
 function dropDown() {
   let dropDownMenu = document.getElementById('sort-wrapper');
   // console.log(dropDownMenu);
+  let dropDownMenuOpen = document.getElementsByClassName('sort-wrapper-open');
+
   dropDownMenu.addEventListener('click', event => {
     
-    let dropDownMenuOpen = document.getElementsByClassName('sort-wrapper-open');
     // console.log(dropDownMenuOpen);
     dropDownMenu.style.display = 'none';
 
     dropDownMenuOpen[0].style.display = 'flex';
   });
-};
 
-dropDown();
+  dropDownMenuOpen[0].addEventListener('click', event => {
+    if (dropDownMenuOpen[0].style.display = 'flex') {
+      dropDownMenuOpen[0].style.display = 'none';
+
+      dropDownMenu.style.display = 'flex';
+    }
+  });
+};
+dropDown()
+
+
+
+function launchform() {
+  
+  // DOM modal elements
+
+  const modalBtn = document.querySelector('.modal-btn');
+  const phForm = document.querySelector('.ph_form');
+  const mainDiv = document.querySelector('.mainDiv');
+  const closeBtn = document.querySelector('.form-close');
+
+  // launch modal event
+
+  modalBtn.addEventListener('click', e => {
+
+    // launch modal form
+
+    phForm.style.display = 'flex';
+    mainDiv.style.opacity = '15%';
+  });
+
+  closeBtn.addEventListener('click', e => {
+    if (phForm.style.display = 'flex') {
+      mainDiv.style.opacity = '100%';
+      phForm.style.display = 'none';
+    }
+  })
+};
