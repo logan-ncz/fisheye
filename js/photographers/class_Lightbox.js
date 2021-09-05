@@ -2,7 +2,7 @@ class Lightbox {
 
     static init() {
       const ph_medias = document.querySelectorAll('.ph_media');
-      // console.log("hey" ,ph_medias)
+      console.log("hey" ,ph_medias)
   
       // const gallery = ph_medias
       
