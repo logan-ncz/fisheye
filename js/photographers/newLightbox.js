@@ -38,6 +38,7 @@ class Lightbox {
       this.lengthItem = this.ph_medias.length ;
 
       this.chargerEnvent();
+      document.onkeydown = this.keyboard.bind(this)
 
     }
 
@@ -62,7 +63,7 @@ class Lightbox {
         this.currentMedia = 0;
       }
       this.buildMedia(this.currentMedia)
-      console.log(this.ph_medias[this.currentMedia] , this.currentMedia)
+      // console.log(this.ph_medias[this.currentMedia] , this.currentMedia)
     }
 
     prev() {
@@ -71,10 +72,18 @@ class Lightbox {
         this.currentMedia = this.lengthItem - 1;
       }
       this.buildMedia(this.currentMedia)
-      console.log(this.ph_medias[this.currentMedia] , this.currentMedia)
+      // console.log(this.ph_medias[this.currentMedia] , this.currentMedia)
     }
 
-    keyboardNext(){
+    keyboard(e){
+      if (e.key === 'Escape') {
+        this.close(e)
+      } else if (e.key === 'ArrowLeft') {
+        this.prev()
+      } else if (e.key === 'ArrowRight') {
+        this.next()
+      }
+
       //Ecoute levent clas
         // --Rappenr next
     }
@@ -91,21 +100,21 @@ class Lightbox {
 
     buildDom(index) {
 
-        const dom = document.getElementById('lightbox');
-        console.log(this.ph_medias[this.currentMedia])
-        
-        dom.innerHTML = `<i class="lightbox__prev fas fa-chevron-left"></i>
-    
-        <div id="lightbox_container" class="lightbox__container">
-        
-        </div>
-        <i class="lightbox_close_icon fa fa-times"></i>
-        <i class="lightbox__next fas fa-chevron-right"></i>`;
-        dom.querySelector('.lightbox_close_icon').addEventListener('click', this.close.bind(this));
-        dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this));                                                                                                                               
-        dom.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this));
-        dom.style.display = "flex";
-        this.buildMedia(index);
+      const dom = document.getElementById('lightbox');
+      // console.log(this.ph_medias[this.currentMedia])
+      
+      dom.innerHTML = `<i class="lightbox__prev fas fa-chevron-left"></i>
+  
+      <div id="lightbox_container" class="lightbox__container">
+      
+      </div>
+      <i class="lightbox_close_icon fa fa-times"></i>
+      <i class="lightbox__next fas fa-chevron-right"></i>`;
+      dom.querySelector('.lightbox_close_icon').addEventListener('click', this.close.bind(this));
+      dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this));                                                                                                                               
+      dom.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this));
+      dom.style.display = "flex";
+      this.buildMedia(index);
     }
 }
 
