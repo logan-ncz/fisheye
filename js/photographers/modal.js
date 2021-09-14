@@ -1,4 +1,20 @@
 class modal {
+
+    constructor(){
+        
+        this.firstNameInput = document.getElementById("prenom");
+        this.lastNameInput = document.getElementById("nom");
+        this.emailInput = document.getElementById("email");
+        
+        // error messages
+        this.errorMessages = {
+            firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
+            lastName: "Veuillez entrer un nom comportant 2 caractères ou plus.",
+            email: "Veuillez entrer une adresse email valide.",
+        }
+
+        this.launchform();
+    }
     
     launchform() {
 
@@ -7,19 +23,7 @@ class modal {
         const phForm = document.querySelector('.ph_form');
         const mainDiv = document.querySelector('.mainDiv');
         const closeBtn = document.querySelector('.form-close');
-
-        const firstNameInput = document.getElementById("prenom");
-        const lastNameInput = document.getElementById("nom");
-        const emailInput = document.getElementById("email");
         
-        // error messages
-        
-        const errorMessages = {
-            firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
-            lastName: "Veuillez entrer un nom comportant 2 caractères ou plus.",
-            email: "Veuillez entrer une adresse email valide.",
-        }
-    
         // launch modal event
     
         modalBtn.addEventListener('click', e => {
@@ -39,7 +43,7 @@ class modal {
         // launch modal form
         e.preventDefault()
         console.log('Submit')
-        validate()
+        this.validate()
         });
     };
     
@@ -53,6 +57,7 @@ class modal {
         else target = element.parentNode;
         target.setAttribute("data-error-visible", true);
         target.setAttribute("data-error", message);
+        console.log( target , element, message)
     }
     
     // valid alert
@@ -60,19 +65,23 @@ class modal {
     isValid() {
     
         console.log('Tout est Ok')
+        const phForm = document.querySelector('.ph_form');
+        const mainDiv = document.querySelector('.mainDiv');
+        const modalConfirm = document.querySelector('.modalConfirm');
+        const modalConfirmClose = document.querySelector('.modalConfirmClose');
     
         // close modal confirm
     
-        // function closeConfirmModal() {
-        // 	modalConfirm.style.display = "none";
-        // }
+        function closeConfirmModal() {
+        	modalConfirm.style.display = "none";
+        }
     
-        // modalForm.style.display = "none";
-        // modalConfirm.style.display = "block";
+        phForm.style.display = "none";
+        modalConfirm.style.display = "flex";
         // modalConfirmBtn.addEventListener("click", closeConfirmModal);
-        // modalConfirmClose.addEventListener("click", closeConfirmModal);
-        // heroSection.style.opacity = "1";
-        // form.reset();
+        modalConfirmClose.addEventListener("click", closeConfirmModal);
+        mainDiv.style.opacity = "1";
+        // phForm.reset();
     }
     
     // delete previous alerts
@@ -90,7 +99,7 @@ class modal {
     // check first name
     
     firstValidation() {
-        let inputValue = firstNameInput.value;
+        let inputValue = this.firstNameInput.value;
         console.log(inputValue);
         if (inputValue !== null && inputValue.length >= 2) return true;
         else return false;
@@ -99,7 +108,7 @@ class modal {
     // check last name
     
     lastValidation() {
-        let inputValue = lastNameInput.value;
+        let inputValue = this.lastNameInput.value;
         if (inputValue !== null && inputValue.length >= 2) return true;
         else return false;
     }
@@ -108,26 +117,26 @@ class modal {
     
     emailValidation() {
         let regex = /^\S+@\S+\.\S+$/;
-        return regex.test(emailInput.value);
+        return regex.test(this.emailInput.value);
     }
     
     validate() {
         let isValidInput = true;
-        removeAlerts();
-        if (!firstValidation()) {
+        this.removeAlerts();
+        if (!this.firstValidation()) {
             isValidInput = false;
-            isInvalid(firstNameInput, errorMessages.firstName);
+            this.isInvalid(this.firstNameInput, this.errorMessages.firstName);
         }
-        if (!lastValidation()) {
+        if (!this.lastValidation()) {
             isValidInput = false;
-            isInvalid(lastNameInput, errorMessages.lastName);
+            this.isInvalid(this.lastNameInput, this.errorMessages.lastName);
         }
-        if (!emailValidation()) {
+        if (!this.emailValidation()) {
             isValidInput = false;
-            isInvalid(emailInput, errorMessages.email);
+            this.isInvalid(this.emailInput, this.errorMessages.email);
         }
         if (isValidInput) {
-            isValid();
+            this.isValid();
         }
     
         const form = document.querySelector('.ph_form');

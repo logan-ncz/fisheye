@@ -42,7 +42,7 @@
         <div class="works-sort">
           <span class="sort-text">Trier par</span>
           <div id="sort-wrapper" class="sort-wrapper">
-            <button class="sort-btn">
+            <button id="sort-btn">
               Popularité
               <i class="fas fa-chevron-down arrow-down-open"></i>
             </button>
@@ -67,19 +67,19 @@
       <form id="contact" name="reserve" action="" method="get" novalidate="" class="ph_form">
         <h1>Contactez-moi Mimi Keel</h1>
         <i class="fas fa-times form-close"></i>
-        <div class="ph_form__prenom">
+        <div class="formData ph_form__prenom">
           <label for="prenom">Prénom</label>
           <input type="text" id="prenom" name="prenom">
         </div>
-        <div class="ph_form__nom">
+        <div class="formData ph_form__nom">
           <label for="nom">Nom</label>
           <input type="text" id="nom" name="nom">
         </div>
-        <div class="ph_form__email">
+        <div class="formData ph_form__email">
           <label for="email">Email</label>
           <input type="email" id="email" name="email">
         </div>
-        <div class="ph_form__message">
+        <div class="formData ph_form__message">
           <label for="message">Votre message</label>
           <input type="text" id="message" name="message" size="">
         </div>
@@ -87,6 +87,24 @@
           <input type="submit" id="envoyer" value="Envoyer">
         </div>
       </form>
+
+      <div class="modalConfirm">
+        <div><p>Merci ! Votre message a bien été envoyé.</p></div>
+        
+        <i class="fas fa-times modalConfirmClose"></i>
+      </div>
+
+      <div id="lightbox"></div>
+
+      <!-- <aside id="lightbox">
+        <i class="lightbox__prev fas fa-chevron-left"></i>
+    
+        <div id="lightbox__media">
+        </div>
+        <h2 id="lightbox__title"></h2>
+        <i class="lightbox_close_icon fa fa-times"></i>
+        <i class="lightbox__next fas fa-chevron-right"></i>
+      </aside> -->
     </main>
 
     <script type="module" src="js/photographers.js"></script>

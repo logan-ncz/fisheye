@@ -114,7 +114,7 @@ header {
         flex-wrap: wrap;
         margin-left: 1em;
     
-        .sort-btn {
+        .sort-btn, #sort-btn {
             background: #901C1C;
             color: white;
             width: 170px;
@@ -154,6 +154,8 @@ header {
 #ph_works {
     display: flex;
     flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
 }
 
 .ph_media {
@@ -182,11 +184,12 @@ header {
     i {
         width: 17.5px;
         color: #901C1C;
+        cursor: pointer;
     }
 }
 
-.lightbox {
-    display: flex;
+#lightbox {
+    display: none;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -195,7 +198,7 @@ header {
     height: 100%;
     background: white;
     
-    img {
+    .mediaLightbox {
         padding: 0;
         width: 44%;
         height: 90%;
@@ -203,21 +206,19 @@ header {
         margin-top: 1em;
     }
 
-    
+    .lightbox_title {
+        text-align: left;
+        color: #901C1C;
+        font-weight: 400;
+        font-size: 24px;
+        width: 44%;
+    }
 
     div {
         width: 64%;
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        h2 {
-            text-align: left;
-            color: #901C1C;
-            font-weight: 400;
-            font-size: 24px;
-            width: 44%;
-        }
     }
 
     .lightbox__prev, .lightbox__next {
@@ -291,5 +292,37 @@ header {
         height: 4em;
         border-radius: 0.3em;
         cursor: pointer;
+    }
+}
+
+.modalConfirm {
+    display: none; //display: flex;
+    align-items: center;
+    background: #DB8876;
+    padding: 1em 2em;
+    position: fixed;
+    top: 2%;
+    margin: auto;
+    // display: flex;
+    left: 25%;
+    right: 25%;
+    border-radius: 0.3em;
+    box-shadow: 0px 0px 0px black;
+    width: 35%;
+    height: 90%;
+
+    .modalConfirmClose {
+        font-size: 3em;
+        color: white;
+        position: absolute;
+        top: 4%;
+        right: 5%;
+    }
+
+    p {
+        margin: 0;
+        color: black;
+        font-size: 30px;
+        text-align: center;
     }
 }

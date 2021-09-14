@@ -17,7 +17,8 @@ function renderMedia(element) {
     function createHTMLImage() {
       let eltImage = document.createElement('img');
       eltImage.setAttribute('src', this.elementFactory.image);
-      eltImage.setAttribute('alt', this.elementFactory.alt);
+      eltImage.setAttribute('alt', this.elementFactory.title);
+      eltImage.setAttribute('title', this.elementFactory.title);
       eltImage.setAttribute('role', 'button');
       eltImage.className = 'ph_media';
   
@@ -28,6 +29,8 @@ function renderMedia(element) {
       let eltVideo = document.createElement('video');
       eltVideo.setAttribute("controls", "controls")
       eltVideo.setAttribute('src', this.elementFactory.video);
+      eltVideo.setAttribute('alt', this.elementFactory.title);
+      eltVideo.setAttribute('title', this.elementFactory.title);
       eltVideo.setAttribute('role', 'button');
       eltVideo.className = 'ph_media';
   

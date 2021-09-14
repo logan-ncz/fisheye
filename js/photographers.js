@@ -1,7 +1,8 @@
 import apiFishEye from './apiFishEye.js';
 import renderMedia from './photographers/renderMedia.js';
 import modal from './photographers/modal.js';
-import Lightbox from './photographers/class_Lightbox.js';
+import Lightbox from './photographers/newLightbox.js';
+import dropDownMenu from './photographers/dropDownSort.js';
 
 
 
@@ -34,7 +35,6 @@ new apiFishEye().getDataFishEye().then( (datas) => {
     document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
     let mediaData = datas.media
-    console.log(mediaData)
 
     //Je lance mon filtre
             //JE trie mon tableau
@@ -55,7 +55,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
         <h2 class="ph_work_title">${element.title}</h2>
         <div class="ph_elt_like">
           <span class="ph_work_like">${element.likes}</span>
-          <i class="fas fa-heart"></i>
+          <i class="far fa-heart"></i>
         </div>
       </div>
     </article>`
@@ -65,9 +65,10 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
   const modalLaunch = new modal;
 
-  modalLaunch.launchform();4
+  new dropDownMenu().dropDown(datas);
 
-  Lightbox.init();
+  const myLightbox = new Lightbox();
+  
 
   sortBy()
 
@@ -80,28 +81,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 ///Voir dans des fichier séparer
 
 
-function dropDown() {
-  let dropDownMenu = document.getElementById('sort-wrapper');
-  // console.log(dropDownMenu);
-  let dropDownMenuOpen = document.getElementsByClassName('sort-wrapper-open');
 
-  dropDownMenu.addEventListener('click', event => {
-    
-    // console.log(dropDownMenuOpen);
-    dropDownMenu.style.display = 'none';
-
-    dropDownMenuOpen[0].style.display = 'flex';
-  });
-
-  dropDownMenuOpen[0].addEventListener('click', event => {
-    if (dropDownMenuOpen[0].style.display = 'flex') {
-      dropDownMenuOpen[0].style.display = 'none';
-
-      dropDownMenu.style.display = 'flex';
-    }
-  });
-};
-dropDown()
 
 function sortBy() {
 
