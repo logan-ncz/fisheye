@@ -9,40 +9,41 @@ import dropDownMenu from './photographers/dropDownSort.js';
 
 new apiFishEye().getDataFishEye().then( (datas) => {
 
-    let photographersData = datas.photographers
+  let photographersData = datas.photographers
 
-    const UrlParam = new URLSearchParams(window.location.search);
-    const id = UrlParam.get('id');
-    // const id = window.location.search.split("id=")[1];
+  const UrlParam = new URLSearchParams(window.location.search);
+  const id = UrlParam.get('id');
+  // const id = window.location.search.split("id=")[1];
 
-    const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
+  const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
 
-    const ph_profil = `<article class="ph_profil">
-        <div class="ph_infos">
-          <h2>${photographers[0].name}</h2>
-          <p class="ph_city">${photographers[0].city}, ${photographers[0].country}</p>
-          <p class="ph_tagline">${photographers[0].tagline}</p>
-          <ul class="filter ph-filter">${photographers[0].tags.map(tag =>
-            `<li data-filter="${tag}">#${tag}</li>`).join(" ")}
-          </ul>
-        </div>
-        <span class="modal-btn">Contactez-moi</span>
-        <img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="" />
-      </article>`
+  const ph_profil = `<article class="ph_profil">
+      <div class="ph_infos">
+        <h2>${photographers[0].name}</h2>
+        <p class="ph_city">${photographers[0].city}, ${photographers[0].country}</p>
+        <p class="ph_tagline">${photographers[0].tagline}</p>
+        <ul class="filter ph-filter">${photographers[0].tags.map(tag =>
+          `<li data-filter="${tag}">#${tag}</li>`).join(" ")}
+        </ul>
+      </div>
+      <span class="modal-btn">Contactez-moi</span>
+      <img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="" />
+    </article>`
 
-        //Je crée mon HTML pour l'intégrer a la page
-  
-
-    document.getElementById('ph_profil_header').innerHTML = ph_profil;
-
-    const likes = new Likes.likes(datas);
+      //Je crée mon HTML pour l'intégrer a la page
 
 
-    let mediaData = datas.media
+  document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
-    //Je lance mon filtre
-            //JE trie mon tableau
-    //JE rendre mes element HTML
+
+  let mediaData = datas.media
+
+  new Likes().countlikes(photographersData, mediaData);
+
+
+  //Je lance mon filtre
+          //JE trie mon tableau
+  //JE rendre mes element HTML
 
   mediaData.forEach(element => {
     if (id == element.photographerId) {
@@ -74,6 +75,10 @@ new apiFishEye().getDataFishEye().then( (datas) => {
     const phName = document.getElementById('formPhName');
 
     phName.innerHTML = `Contactez-moi ${photographers[0].name}`
+
+  const phPrice = document.getElementById('price');
+
+  phPrice.innerHTML = `${photographers[0].price}€ / jour`
 
 
   new dropDownMenu().dropDown(datas);
