@@ -209,7 +209,7 @@ header {
 .ph_form {
   display: none;
   background: #DB8876;
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   position: fixed;
   top: 2%;
   margin: auto;
@@ -241,25 +241,38 @@ header {
   flex-direction: column;
   margin: 0.4em 0;
 }
+.ph_form [data-error-visible=true] #prenom, .ph_form [data-error-visible=true] #nom, .ph_form [data-error-visible=true] #email, .ph_form [data-error-visible=true] #message {
+  border: 3px solid red;
+}
 .ph_form #prenom, .ph_form #nom, .ph_form #email {
   height: 3em;
   border-radius: 5px;
 }
+.ph_form .formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.7em;
+  color: red;
+  margin-top: 7px;
+  margin-bottom: -7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 1;
+  transition: 0.3s;
+}
+.ph_form input[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: red;
+}
 .ph_form #message {
   height: 10em;
-}
-.ph_form #envoyer {
-  background: #901C1C;
-  color: white;
-  border: none;
-  width: 10em;
-  height: 4em;
-  border-radius: 0.3em;
-  cursor: pointer;
+  border-radius: 5px;
 }
 
 .modalConfirm {
   display: none;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: #DB8876;
   padding: 1em 2em;
@@ -273,6 +286,12 @@ header {
   width: 35%;
   height: 90%;
 }
+.modalConfirm p {
+  margin: 0;
+  color: black;
+  font-size: 30px;
+  text-align: center;
+}
 .modalConfirm .modalConfirmClose {
   font-size: 3em;
   color: white;
@@ -280,11 +299,19 @@ header {
   top: 4%;
   right: 5%;
 }
-.modalConfirm p {
-  margin: 0;
-  color: black;
-  font-size: 30px;
-  text-align: center;
+.modalConfirm .modalBtn {
+  position: relative;
+  top: 38%;
+}
+
+.modalBtn {
+  background: #901C1C;
+  color: white;
+  border: none;
+  width: 10em;
+  height: 4em;
+  border-radius: 0.3em;
+  cursor: pointer;
 }
 
 * {

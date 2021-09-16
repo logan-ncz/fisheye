@@ -1,5 +1,6 @@
 import apiFishEye from './apiFishEye.js';
 import renderMedia from './photographers/renderMedia.js';
+import Likes from './photographers/Likes.js';
 import modal from './photographers/modal.js';
 import Lightbox from './photographers/newLightbox.js';
 import dropDownMenu from './photographers/dropDownSort.js';
@@ -34,6 +35,9 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
     document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
+    const likes = new Likes.likes(datas);
+
+
     let mediaData = datas.media
 
     //Je lance mon filtre
@@ -65,11 +69,17 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
   const modalLaunch = new modal;
 
+  // h1 photographer name for modal contact
+
+    const phName = document.getElementById('formPhName');
+
+    phName.innerHTML = `Contactez-moi ${photographers[0].name}`
+
+
   new dropDownMenu().dropDown(datas);
 
   const myLightbox = new Lightbox();
   
-
   sortBy()
 
 })

@@ -1,8 +1,18 @@
-class Likes {
-    let phLikes = 0
-    phMedias = document.querySelectorAll('.ph_media')
+export default class Likes {
 
-    phMedias.forEach(ph_media => {
+    constructor(){
+        let likes = 0
+    
+        this.mediaData = datas.mediaData;
+        this.likes();
+    }
+    
+    likes(datas) {
         
-    });
+        console.log(mediaData)
+        // phMedias.forEach(ph_media => {
+        //     likes += 
+        // });
+    }
+    
 }
