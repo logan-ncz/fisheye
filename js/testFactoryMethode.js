@@ -4,7 +4,7 @@ class MaClass {
     }
 
     afficher(){
-        console.log(this.mavariable)
+        // console.log(this.mavariable)
     }
 }
 
@@ -12,11 +12,11 @@ let InstanceDeMaClass = new MaClass('Thomas')
 let InstanceDeMaClass2 = new MaClass('Logan')
 InstanceDeMaClass.afficher()
 InstanceDeMaClass2.afficher()
-console.log(InstanceDeMaClass2)
+// console.log(InstanceDeMaClass2)
 
 
 function AfficherName(name){
-    console.log(name)
+    // console.log(name)
 }
 
 AfficherName('Thomas et logan')
@@ -24,7 +24,7 @@ AfficherName('Thomas et logan')
 
 MyObject = {
     afficher(name){
-        console.log(name)
+        // console.log(name)
     }
 }
 
@@ -41,7 +41,7 @@ function MaFactoryMethode(name){
     let mavariable = name
 
     function affiche(){
-        console.log(this.mavariable)
+        // console.log(this.mavariable)
     }
 
     return {

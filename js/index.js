@@ -48,7 +48,7 @@ fetch(url)
     
 
     const MonObjectFilterFactory = FilterFactory();
-    console.log(MonObjectFilterFactory);
+    // console.log(MonObjectFilterFactory);
     MonObjectFilterFactory.filterTags();
 })
 

@@ -38,7 +38,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
   let mediaData = datas.media
 
-  new Likes().countlikes(photographersData, mediaData);
+  
 
 
   //Je lance mon filtre
@@ -60,13 +60,17 @@ new apiFishEye().getDataFishEye().then( (datas) => {
         <h2 class="ph_work_title">${element.title}</h2>
         <div class="ph_elt_like">
           <span class="ph_work_like">${element.likes}</span>
-          <i class="far fa-heart"></i>
+          <i class="btnLike far fa-heart"></i>
         </div>
       </div>
     </article>`
 
     document.getElementById('ph_works').innerHTML += template;
   }})
+
+  // new Likes().countlikes(photographersData, mediaData);
+  const myLikes = new Likes();
+  // myLikes
 
   const modalLaunch = new modal;
 
