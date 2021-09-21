@@ -1,4 +1,5 @@
 import FilterFactory from './filtre_ph.js'
+import Scroll from './scrollBtn.js'
 
 let url = "bdd/FishEyeData.json";
 
@@ -50,6 +51,9 @@ fetch(url)
     const MonObjectFilterFactory = FilterFactory();
     // console.log(MonObjectFilterFactory);
     MonObjectFilterFactory.filterTags();
+
+    const scroll = new Scroll
+    scroll.scrollButton()
 })
 
 .catch((err) =>{

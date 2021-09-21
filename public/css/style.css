@@ -132,20 +132,19 @@ header {
 
 #ph_works {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 90%;
-  margin: auto;
 }
 
 .ph_media {
-  width: 350px;
-  height: 300px;
+  width: 21.9em;
+  height: 18.75em;
   object-fit: cover;
   border-radius: 5px;
 }
 
 .ph_work_elt {
-  margin: 2em;
+  margin: 2em 2em 0em 2em;
   color: #901C1C;
 }
 
@@ -314,6 +313,15 @@ header {
   cursor: pointer;
 }
 
+@media (max-width: 415px) {
+  header {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header a, header nav, header h1 {
+    margin: auto;
+  }
+}
 * {
   font-family: "DM Sans", sans-serif;
 }
@@ -384,6 +392,7 @@ ul li.activated {
 }
 
 .contenuBtn {
+  display: none;
   font-size: 18px;
   font-weight: 700;
   background: #DB8876;
