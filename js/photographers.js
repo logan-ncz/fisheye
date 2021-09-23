@@ -2,7 +2,7 @@ import apiFishEye from './apiFishEye.js';
 import renderMedia from './photographers/renderMedia.js';
 import Likes from './photographers/Likes.js';
 import modal from './photographers/modal.js';
-import Lightbox from './photographers/newLightbox.js';
+import Lightbox from './photographers/lightbox.js';
 import dropDownMenu from './photographers/dropDownSort.js';
 
 
