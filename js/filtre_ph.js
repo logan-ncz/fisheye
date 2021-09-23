@@ -78,7 +78,8 @@ export default function FilterFactory() {
                 let myTEst = event.target.getAttribute("data-filter")
         
                 if (-1 === classValue.indexOf('activated')) {
-                    event.target.classList.add('activated')
+                    // event.target.classList.add('activated')
+                    event.target.className = "activated phFilter"
                    
                     this.activedAdd(myTEst)
                 } else {
@@ -100,7 +101,8 @@ export default function FilterFactory() {
         filtres.forEach( filtre => {
             let classValue = filtre.classList.value;
             if (-1 === classValue.indexOf('activated') && filtre.getAttribute("data-filter") === test ) {
-                filtre.classList.add('activated')
+                // filtre.classList.add('activated')
+                filtre.className = "activated phFilter"
             }
         })
     }
