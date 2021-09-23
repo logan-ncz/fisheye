@@ -33,7 +33,7 @@ fetch(url)
         <p class="tagline">${element.tagline}</p>
         <p class="price">${element.price}€/jour</p>
         <ul class="filter">${element.tags.map(tag =>
-            `<li data-filter="${tag}">#${tag}</li>`).join(" ")}
+            `<li class="phFilter" data-filter="${tag}">#${tag}</li>`).join(" ")}
         </ul>`
 
       

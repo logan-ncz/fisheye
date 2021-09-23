@@ -23,7 +23,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
         <p class="ph_city">${photographers[0].city}, ${photographers[0].country}</p>
         <p class="ph_tagline">${photographers[0].tagline}</p>
         <ul class="filter ph-filter">${photographers[0].tags.map(tag =>
-          `<li data-filter="${tag}">#${tag}</li>`).join(" ")}
+          `<li class="phFilter" data-filter="${tag}">#${tag}</li>`).join(" ")}
         </ul>
       </div>
       <span class="modal-btn">Contactez-moi</span>

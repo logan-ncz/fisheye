@@ -1,9 +1,112 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-header {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
+@media (max-width: 415px) {
+  body {
+    margin-left: 0;
+  }
 
+  header.header {
+    flex-direction: column;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+  header.header img.logo {
+    width: 9.5em;
+    position: relative;
+    left: -12%;
+  }
+  header.header a {
+    position: relative;
+    left: -22%;
+  }
+  header.header nav ul {
+    width: 80%;
+  }
+  header.header nav ul li.phFilter[data-filter=portrait], header.header nav ul li.phFilter[data-filter=art], header.header nav ul li.phFilter[data-filter=fashion], header.header nav ul li.phFilter[data-filter=architecture] {
+    margin-bottom: 0.5em;
+  }
+
+  header.header a, header.header nav, main h1 {
+    margin: 2em;
+  }
+
+  main h1 {
+    font-size: 1em;
+    right: 0%;
+    top: 1.5%;
+  }
+
+  li.phFilter {
+    font-size: 12px;
+  }
+
+  .photographers {
+    margin-top: 2em;
+    flex-direction: column;
+    align-items: center;
+  }
+  .photographers .articlePh .name, .photographers .tagline {
+    width: 18em;
+  }
+
+  .phHeader {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  article.ph_profil {
+    width: 90%;
+    padding: 0;
+    background: none;
+  }
+  article.ph_profil div.ph_infos h2 {
+    font-size: 36px;
+    margin-bottom: 0;
+  }
+  article.ph_profil div.ph_infos .ph_city {
+    font-size: 13px;
+  }
+  article.ph_profil div.ph_infos .ph_tagline {
+    font-size: 13px;
+  }
+  article.ph_profil div.ph_infos .ph_city, article.ph_profil div.ph_infos .ph_tagline {
+    margin: 0 0 0.2em;
+  }
+  article.ph_profil img {
+    position: absolute;
+    width: 26%;
+    right: 6%;
+    height: 12%;
+    top: 12.5%;
+  }
+  article.ph_profil span.modal-btn {
+    position: fixed;
+    left: 28%;
+    bottom: 2%;
+    width: 9.5em;
+    height: 2em;
+  }
+
+  div.works-sort {
+    display: none;
+  }
+
+  article.ph_work_elt {
+    margin: 0;
+  }
+  article.ph_work_elt:first-child {
+    margin-top: 2em;
+  }
+
+  div#box {
+    display: none;
+  }
+}
+@media (min-width: 700px) {
+  body {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
 .ph_profil {
   background: #fafafa;
   display: flex;
@@ -12,12 +115,6 @@ header {
   width: 100%;
   padding: 4rem;
   margin: 0 20px;
-}
-.ph_profil img {
-  width: 12.5rem;
-  height: 12.5rem;
-  object-fit: cover;
-  border-radius: 50%;
 }
 .ph_profil h2 {
   color: #D3573C;
@@ -56,7 +153,7 @@ header {
 .ph_infos h2 {
   font-size: 64px;
   font-weight: 400;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem -0.2rem;
 }
 .ph_infos .ph_city {
   font-size: 24px;
@@ -70,6 +167,9 @@ header {
 .ph_infos .ph-filter {
   justify-content: flex-start;
   padding: 0;
+}
+.ph_infos .ph-filter li:first-child {
+  margin-left: 0;
 }
 
 #box {
@@ -313,37 +413,28 @@ header {
   cursor: pointer;
 }
 
-@media (max-width: 415px) {
-  header {
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  header a, header nav, header h1 {
-    margin: auto;
-  }
-}
 * {
   font-family: "DM Sans", sans-serif;
 }
 
-body {
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
 h1 {
+  position: absolute;
+  right: 2%;
+  top: 3%;
   color: #901C1C;
   font-weight: 400;
   font-size: 1.8em;
 }
 
-header {
+.header {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
-header nav ul {
+.header nav ul {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
@@ -356,6 +447,9 @@ header nav ul {
   right: 0;
   text-align: center;
 }
+.header img {
+  width: 12.5em;
+}
 
 section {
   display: flex;
@@ -367,7 +461,10 @@ section {
   width: 100%;
 }
 
-article {
+.articlePh {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   margin: 0.5rem;
   padding: 0.3rem;
   text-align: center;
@@ -407,11 +504,6 @@ ul li.activated {
   top: 2%;
   text-decoration: none;
   color: black;
-}
-
-.logo {
-  width: 200px;
-  height: 50px;
 }
 
 .filtres {

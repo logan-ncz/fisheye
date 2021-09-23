@@ -181,7 +181,7 @@ export default function FilterFactory() {
     function sortDomArticle(articles) {
         articles.forEach((article) => {
             if (this.ownAllFilters(article)) {
-                article.style.display = 'block';
+                article.style.display = 'flex';
             } else {
                 article.style.display = 'none';
             }
