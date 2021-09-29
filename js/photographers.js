@@ -27,7 +27,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
         </ul>
       </div>
       <span class="modal-btn">Contactez-moi</span>
-      <img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="" />
+      <figure><img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="Portrait of ${photographers[0].name}" /></figure>
     </article>`
 
       //Je crée mon HTML pour l'intégrer a la page
@@ -53,7 +53,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
       // console.log(mediaHTML)
 
       let template = `<article class="ph_work_elt">
-      <a class="ph_media_link" href='${mediaHTML.src}' title=${element.title}>
+      <a class="ph_media_link" href='${mediaHTML.src}' title='${element.title}'>
         ${mediaHTML.outerHTML}
       </a>
       <div class="ph_work_elt_text">
@@ -69,7 +69,7 @@ new apiFishEye().getDataFishEye().then( (datas) => {
   }})
 
   // new Likes().countlikes(photographersData, mediaData);
-  const myLikes = new Likes();
+  
   // myLikes
 
   const modalLaunch = new modal;
@@ -86,6 +86,8 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
 
   new dropDownMenu().dropDown(datas);
+
+  const myLikes = new Likes();
 
   const myLightbox = new Lightbox();
   

@@ -26,7 +26,7 @@ fetch(url)
 
         myHTML = `
         <a href="photographers.html?id=${element.id}">
-          <img src="photos/Photographers ID Photos/${element.portrait}" alt="" />
+          <img src="photos/Photographers ID Photos/${element.portrait}" alt="Portrait of ${element.name}" />
           <h2 class="name">${element.name}</h2>
         </a>
         <p class="location">${element.city}, ${element.country}</p>

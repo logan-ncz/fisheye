@@ -1,4 +1,5 @@
 import renderMedia from "./renderMedia.js";
+import Likes from "./Likes.js";
 
 export default class dropDownMenu {
     dropDown(datas) {
@@ -60,6 +61,7 @@ export default class dropDownMenu {
             
             document.getElementById('ph_works').innerHTML = ``
             this.displaySortMedia(mediaArraySort);
+            
         }));
     }
 
@@ -81,13 +83,15 @@ export default class dropDownMenu {
                 <h2 class="ph_work_title">${element.title}</h2>
                 <div class="ph_elt_like">
                   <span class="ph_work_like">${element.likes}</span>
-                  <i class="far fa-heart"></i>
+                  <i class="btnLike far fa-heart"></i>
                 </div>
               </div>
                 </article>`
         
             document.getElementById('ph_works').innerHTML += template;
-            }})
+            }
+        })
+        new Likes();
     }
 
 }

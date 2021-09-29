@@ -17,7 +17,7 @@ function renderMedia(element) {
     function createHTMLImage() {
       let eltImage = document.createElement('img');
       eltImage.setAttribute('src', this.elementFactory.image);
-      eltImage.setAttribute('alt', this.elementFactory.title);
+      eltImage.setAttribute('alt', this.elementFactory.alt);
       eltImage.setAttribute('title', this.elementFactory.title);
       eltImage.setAttribute('role', 'button');
       eltImage.className = 'ph_media';
