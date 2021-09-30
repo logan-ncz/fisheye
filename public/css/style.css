@@ -44,9 +44,6 @@
     flex-direction: column;
     align-items: center;
   }
-  .photographers .articlePh .name, .photographers .tagline {
-    width: 18em;
-  }
 
   .phHeader {
     flex-direction: row;
@@ -99,6 +96,17 @@
 
   div#box {
     display: none;
+  }
+
+  form.ph_form {
+    top: 0%;
+    left: initial;
+    right: initial;
+    width: 92%;
+    padding: 0.5em 1em;
+  }
+  form.ph_form h1#formPhName {
+    font-size: 36px;
   }
 }
 @media (min-width: 700px) {
@@ -319,7 +327,8 @@
   box-shadow: 0px 0px 0px black;
   width: 35%;
 }
-.ph_form h1 {
+.ph_form #formPhName {
+  position: initial;
   margin: 0;
   color: black;
   font-size: 50px;
