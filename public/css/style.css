@@ -222,7 +222,7 @@
   font-weight: 700;
   margin-bottom: -1%;
 }
-.works-sort .sort-wrapper .sort-btn i, .works-sort .sort-wrapper #sort-btn i {
+.works-sort .sort-wrapper .sort-btn .sort-btn_arrow, .works-sort .sort-wrapper #sort-btn .sort-btn_arrow {
   position: relative;
   right: -10%;
   bottom: -4%;

@@ -34,21 +34,21 @@ export default class dropDownMenu {
         sortBtn.forEach((btn, index) => btn.addEventListener('click', () => {
             dropDownMenuOpen [0].style.display = "none";
             if (index == 0) {
-                dropDownMenu.innerHTML = `Popularité <i class="fas fa-chevron-down arrow-down-open"></i>`;
+                dropDownMenu.innerHTML = `Popularité <em class="sort-btn_arrow fas fa-chevron-down arrow-down-open"></em>`;
                 
                 mediaArraySort = media.sort((a, b) => { // Sort by Popularity 
                     return b.likes - a.likes
                 })
 
             } else if (index == 1) {
-                dropDownMenu.innerHTML = `Date <i class="fas fa-chevron-down arrow-down-open"></i>`;
+                dropDownMenu.innerHTML = `Date <em class="sort-btn_arrow fas fa-chevron-down arrow-down-open"></em>`;
 
                 mediaArraySort = media.sort((a, b) => { // Sort by Date
                     return new Date(a.date).valueOf() - new Date(b.date).valueOf();
                 })
 
             } else if (index == 2) {
-                dropDownMenu.innerHTML = `Titre <i class="fas fa-chevron-down arrow-down-open"></i>`;
+                dropDownMenu.innerHTML = `Titre <em class="sort-btn_arrow fas fa-chevron-down arrow-down-open"></em>`;
 
                 mediaArraySort = media.sort((a, b) => { // Sort by Title
                     if (a.title.toLowerCase() < b.title.toLowerCase()) {
