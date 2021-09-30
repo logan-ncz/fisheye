@@ -1,13 +1,11 @@
+import apiFishEye from './apiFishEye.js';
 import FilterFactory from './filtre_ph.js'
 import Scroll from './scrollBtn.js'
 
-let url = "bdd/FishEyeData.json";
+// let url = "bdd/FishEyeData.json";
 
-fetch(url)
-.then( (datas) =>{
-    return datas.json()
-})
-.then( (datas) => {
+
+new apiFishEye().getDataFishEye().then( (datas) => {
 
 
     let photographes = datas.photographers;
@@ -25,16 +23,16 @@ fetch(url)
         articlePhotographers.className = element.tags.join(' ') + ' articlePh';
 
         myHTML = `
-        <a href="photographers.html?id=${element.id}">
-          <img src="photos/Photographers ID Photos/${element.portrait}" alt="Portrait of ${element.name}" />
+        <a href="photographers.html?id=${element.id}" alt="${element.name}">
+          <img src="photos/Photographers ID Photos/${element.portrait}" alt="" />
           <h2 class="name">${element.name}</h2>
         </a>
         <p class="location">${element.city}, ${element.country}</p>
         <p class="tagline">${element.tagline}</p>
         <p class="price">${element.price}€/jour</p>
-        <ul class="filter">${element.tags.map(tag =>
-            `<li class="phFilter" data-filter="${tag}">#${tag}</li>`).join(" ")}
-        </ul>`
+        <nav>${element.tags.map(tag =>
+            `<span class="phFilter" data-filter="${tag}" alt="tag">#${tag}</span>`).join(" ")}
+        </nav>`
 
       
 

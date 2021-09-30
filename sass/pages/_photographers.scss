@@ -60,12 +60,15 @@
         margin: 0 0 1rem 0;
     }
 
-    .ph-filter {
-        justify-content: flex-start;
+    nav {
         padding: 0;
 
-        li:first-child {
+        span:first-child {
             margin-left: 0;
+        }
+
+        span {
+            margin: 0.1em;
         }
     }
 }

@@ -69,7 +69,7 @@ export default function FilterFactory() {
     let articles = [];
     
     function filterTags() {
-        let filtres = document.querySelectorAll('ul li');
+        let filtres = document.querySelectorAll('.phFilter');
         articles = document.querySelectorAll('.articlePh');
 
         filtres.forEach( filtre => {
@@ -96,7 +96,7 @@ export default function FilterFactory() {
 
     //Function pour rendre tout les mêmes filtres en rouge
     function activedAdd(test){
-        let filtres = document.querySelectorAll('ul li');
+        let filtres = document.querySelectorAll('.phFilter');
 
         filtres.forEach( filtre => {
             let classValue = filtre.classList.value;
@@ -108,7 +108,7 @@ export default function FilterFactory() {
     }
 
     function activedRemove(test){
-        let filtres = document.querySelectorAll('ul li');
+        let filtres = document.querySelectorAll('.phFilter');
 
         filtres.forEach( filtre => {
             let classValue = filtre.classList.value;

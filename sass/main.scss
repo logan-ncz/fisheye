@@ -26,19 +26,17 @@ h1 {
     margin-bottom: 2rem;
 
     nav {
-        ul {
-            display: flex;
-            justify-content: center;
-            flex-flow: row wrap;
-            list-style: none;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0;
-            position: absolute;
-            left: 0;
-            right: 0;
-            text-align: center;
-        }
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        list-style: none;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
 
     img {
@@ -64,9 +62,19 @@ section {
     padding: 0.3rem;
     text-align: center;
     width: 22rem;
+
+    nav {
+        margin-top: 0.5em;
+
+        .phFilter {
+            margin: 0;
+        }
+    }
+
+    
 }
 
-ul li {
+.phFilter {
     border: 0.5px solid #c4c4c4;
     border-radius: 11px;
     color: #901C1C;
