@@ -71,7 +71,8 @@
         
             h2 {
                 font-size: 36px;
-                margin-bottom: 0;
+                margin: 0;
+                width: 87%;
             }
     
             .ph_city {
@@ -138,6 +139,24 @@
 
         h1#formPhName {
             font-size: 36px;
+            width: 91%;
+        }
+
+        .form-close {
+            font-size: 2em;
+            top: 2%;
+        }
+    }
+
+    #lightbox {
+        div.lightbox__container {
+            width: 289px;
+            height: 248px;
+    
+            .ph_media {
+                width: 14.9em;
+                height: 9.75em;
+            }
         }
     }
 

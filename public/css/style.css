@@ -57,7 +57,8 @@
   }
   article.ph_profil div.ph_infos h2 {
     font-size: 36px;
-    margin-bottom: 0;
+    margin: 0;
+    width: 87%;
   }
   article.ph_profil div.ph_infos .ph_city {
     font-size: 13px;
@@ -108,6 +109,20 @@
   }
   form.ph_form h1#formPhName {
     font-size: 36px;
+    width: 91%;
+  }
+  form.ph_form .form-close {
+    font-size: 2em;
+    top: 2%;
+  }
+
+  #lightbox div.lightbox__container {
+    width: 289px;
+    height: 248px;
+  }
+  #lightbox div.lightbox__container .ph_media {
+    width: 14.9em;
+    height: 9.75em;
   }
 }
 @media (min-width: 700px) {
@@ -287,10 +302,10 @@
   height: 100%;
   background: white;
 }
-#lightbox .mediaLightbox {
+#lightbox .ph_media {
   padding: 0;
-  width: 44%;
-  height: 90%;
+  width: 38.9em;
+  height: 25.75em;
   object-fit: cover;
   margin-top: 1em;
 }
