@@ -13,7 +13,6 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
   const UrlParam = new URLSearchParams(window.location.search);
   const id = UrlParam.get('id');
-  // const id = window.location.search.split("id=")[1];
 
   const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
 
@@ -27,30 +26,21 @@ new apiFishEye().getDataFishEye().then( (datas) => {
         </nav>
       </div>
       <span class="modal-btn" alt="Contact-me">Contactez-moi</span>
-      <figure><img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="${photographers[0].name}" /></figure>
+      <figure class="ph_profil__img"><img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="${photographers[0].name}" /></figure>
     </article>`
 
-      //Je crée mon HTML pour l'intégrer a la page
+    //Je crée mon HTML pour l'intégrer a la page
 
 
   document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
-
   let mediaData = datas.media
-
-  
-
-
-  //Je lance mon filtre
-          //JE trie mon tableau
-  //JE rendre mes element HTML
 
   mediaData.forEach(element => {
     if (id == element.photographerId) {
 
       let MediaFactory = renderMedia(element);
       let mediaHTML = MediaFactory.choiceElement();
-      // console.log(mediaHTML)
 
       let template = `<article class="ph_work_elt">
       <a class="ph_media_link" href='${mediaHTML.src}' title='${element.title}' alt="${element.title}, closeup view">
@@ -67,10 +57,6 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
     document.getElementById('ph_works').innerHTML += template;
   }})
-
-  // new Likes().countlikes(photographersData, mediaData);
-  
-  // myLikes
 
   const modalLaunch = new modal;
 
@@ -90,24 +76,8 @@ new apiFishEye().getDataFishEye().then( (datas) => {
   const myLikes = new Likes();
 
   const myLightbox = new Lightbox();
-  
-  sortBy()
 
 })
 .catch((err) =>{
       console.error(err)
 });
-
-
-///Voir dans des fichier séparer
-
-
-
-
-function sortBy() {
-
-  const ph_medias = document.querySelectorAll('.ph_media');
-  // console.log(ph_medias)
-
-
-}

@@ -18,15 +18,15 @@
     position: relative;
     left: -22%;
   }
-  header.header nav ul {
-    width: 80%;
+  header.header nav {
+    position: initial;
   }
-  header.header nav ul li.phFilter[data-filter=portrait], header.header nav ul li.phFilter[data-filter=art], header.header nav ul li.phFilter[data-filter=fashion], header.header nav ul li.phFilter[data-filter=architecture] {
+  header.header nav span.phFilter[data-filter=portrait], header.header nav span.phFilter[data-filter=art], header.header nav span.phFilter[data-filter=fashion], header.header nav span.phFilter[data-filter=architecture] {
     margin-bottom: 0.5em;
   }
 
   header.header a, header.header nav, main h1 {
-    margin: 2em;
+    margin: 1em;
   }
 
   main h1 {
@@ -68,12 +68,13 @@
   article.ph_profil div.ph_infos .ph_city, article.ph_profil div.ph_infos .ph_tagline {
     margin: 0 0 0.2em;
   }
-  article.ph_profil img {
+  article.ph_profil figure {
+    width: 100px;
+    height: 100px;
+    margin: 0;
     position: absolute;
-    width: 26%;
-    right: 6%;
-    height: 12%;
-    top: 12.5%;
+    top: 8%;
+    right: 5%;
   }
   article.ph_profil span.modal-btn {
     position: fixed;
@@ -120,6 +121,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   padding: 4rem;
   margin: 0 20px;
@@ -174,6 +176,7 @@
 }
 .ph_infos nav {
   padding: 0;
+  margin-top: 0.4em;
 }
 .ph_infos nav span:first-child {
   margin-left: 0;
@@ -422,6 +425,19 @@
   height: 4em;
   border-radius: 0.3em;
   cursor: pointer;
+}
+
+figure.ph_profil__img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+figure.ph_profil__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 * {

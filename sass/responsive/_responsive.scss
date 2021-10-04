@@ -22,17 +22,17 @@
             left: -22%;
         }
 
-        nav ul {
-            width: 80%;
+        nav {
+            position: initial;
 
-            li.phFilter[data-filter="portrait"], li.phFilter[data-filter="art"], li.phFilter[data-filter="fashion"], li.phFilter[data-filter="architecture"] {
+            span.phFilter[data-filter="portrait"], span.phFilter[data-filter="art"], span.phFilter[data-filter="fashion"], span.phFilter[data-filter="architecture"] {
                 margin-bottom: 0.5em;
             }
         }
     }
 
     header.header a, header.header nav, main h1 {
-        margin: 2em;
+        margin: 1em;
     }
 
     main {
@@ -87,12 +87,21 @@
             }
         }
 
-        img {
+        // img {
+        //     position: absolute;
+        //     width: 26%;
+        //     right: 6%;
+        //     height: 12%;
+        //     top: 12.5%;
+        // }
+
+        figure {
+            width: 100px;
+            height: 100px;
+            margin: 0;
             position: absolute;
-            width: 26%;
-            right: 6%;
-            height: 12%;
-            top: 12.5%;
+            top: 8%;
+            right: 5%;
         }
 
         span.modal-btn {
