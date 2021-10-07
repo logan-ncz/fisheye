@@ -103,16 +103,16 @@ class Lightbox {
       const dom = document.getElementById('lightbox');
       // console.log(this.ph_medias[this.currentMedia])
       
-      dom.innerHTML = `<i class="lightbox__prev fas fa-chevron-left"></i>
+      dom.innerHTML = `<i class="lightbox_icon lightbox_icon__prev fas fa-chevron-left"></i>
   
       <div id="lightbox_container" class="lightbox__container">
       
       </div>
-      <i class="lightbox_close_icon fa fa-times"></i>
-      <i class="lightbox__next fas fa-chevron-right"></i>`;
-      dom.querySelector('.lightbox_close_icon').addEventListener('click', this.close.bind(this));
-      dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this));                                                                                                                               
-      dom.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this));
+      <i class="lightbox_icon lightbox_icon__next fas fa-chevron-right"></i>
+      <i class="lightbox_icon lightbox_icon__close fa fa-times"></i>`;
+      dom.querySelector('.lightbox_icon__close').addEventListener('click', this.close.bind(this));
+      dom.querySelector('.lightbox_icon__next').addEventListener('click', this.next.bind(this));                                                                                                                               
+      dom.querySelector('.lightbox_icon__prev').addEventListener('click', this.prev.bind(this));
       dom.style.display = "flex";
       this.buildMedia(index);
     }

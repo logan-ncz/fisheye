@@ -88,14 +88,6 @@
             }
         }
 
-        // img {
-        //     position: absolute;
-        //     width: 26%;
-        //     right: 6%;
-        //     height: 12%;
-        //     top: 12.5%;
-        // }
-
         figure {
             width: 100px;
             height: 100px;
@@ -135,29 +127,49 @@
         left: initial;
         right: initial;
         width: 92%;
+        height: 98.25%;
         padding: 0.5em 1em;
 
         h1#formPhName {
             font-size: 36px;
-            width: 91%;
         }
 
         .form-close {
             font-size: 2em;
             top: 2%;
         }
+
+        div {
+            margin: 1.4em 0;
+        }
+
+        .modalBtn {
+            position: relative;
+            left: 25%;
+            height: 3em;
+            font-size: 18px;
+        }
     }
 
     #lightbox {
         div.lightbox__container {
-            width: 289px;
-            height: 248px;
+            // width: 289px;
+            // height: 248px;
     
             .ph_media {
-                width: 14.9em;
-                height: 9.75em;
+                width: 17em;
+                max-height: 22em;
+                margin-top: initial;
             }
         }
+    }
+
+    div.modalConfirm {
+        top: 0%;
+        left: initial;
+        right: initial;
+        width: 85%;
+        height: 96.25%;
     }
 
 }
@@ -169,4 +181,10 @@
         margin-right: 2rem;
     }
 
+}
+
+@media (min-width: 415px) and (max-width: 1213px) {
+    article.ph_profil span.modal-btn {
+        bottom: 14%;
+    }
 }

@@ -193,10 +193,12 @@
     
     .ph_media {
         padding: 0;
-        width: 38.9em;
-        height: 25.75em;
-        object-fit: cover;
-        margin-top: 1em;
+        min-width: 30em;
+        min-height: 40em;
+        width: initial;
+        height: initial;
+        max-width: 50em;
+        max-height: 30em;
     }
 
     .lightbox_title {
@@ -204,26 +206,38 @@
         color: #901C1C;
         font-weight: 400;
         font-size: 24px;
-        width: 44%;
+        width: 100%;
+        margin-bottom: 0.2em;
+        margin-top: 0.2em;
     }
 
     div {
-        width: 64%;
+        // width: 80%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 2em;
     }
 
-    .lightbox__prev, .lightbox__next {
+    .lightbox_icon__prev, .lightbox_icon__next {
         color: #901C1C;
         font-size: 3em;
     }
 
-    .lightbox_close_icon {
+    .lightbox_icon__prev {
+        margin-right: 0.5em;
+    }
+
+    .lightbox_icon__next {
+        margin-left: 0.5em;
+    }
+
+    .lightbox_icon__close {
         position: relative;
         top: -38%;
         color: #901C1C;
         font-size: 3em;
+        margin-left: -0.6em;
     }
 
 }
@@ -245,9 +259,10 @@
 
     #formPhName {
         position: initial;
+        width: 91%;
         margin: 0;
         color: black;
-        font-size: 50px;
+        font-size: 44px;
     }
 
     .form-close {
@@ -347,9 +362,11 @@
 .modalBtn {
     background: #901C1C;
     color: white;
+    font-size: 18px;
+    font-weight: 700;
     border: none;
     width: 10em;
-    height: 4em;
+    height: 3.5em;
     border-radius: 0.3em;
     cursor: pointer;
 }
