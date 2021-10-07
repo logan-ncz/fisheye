@@ -29,9 +29,6 @@ new apiFishEye().getDataFishEye().then( (datas) => {
       <figure class="ph_profil__img"><img src="photos/Photographers ID Photos/${photographers[0].portrait}" alt="${photographers[0].name}" /></figure>
     </article>`
 
-    //Je crée mon HTML pour l'intégrer a la page
-
-
   document.getElementById('ph_profil_header').innerHTML = ph_profil;
 
   let mediaData = datas.media
@@ -66,10 +63,11 @@ new apiFishEye().getDataFishEye().then( (datas) => {
 
     phName.innerHTML = `Contactez-moi ${photographers[0].name}`
 
-  const phPrice = document.getElementById('price');
+  // photographer price for the bottom box
 
-  phPrice.innerHTML = `${photographers[0].price}€ / jour`
+    const phPrice = document.getElementById('price');
 
+    phPrice.innerHTML = `${photographers[0].price}€ / jour`
 
   new dropDownMenu().dropDown(datas);
 

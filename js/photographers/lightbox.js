@@ -1,48 +1,19 @@
-// export default class Lightbox {
-//   constructor() {
-//     this.currentIndex = 0;
-//   }
-  
-  
-  
-// }
-
-
-
-
-
-
-
-
-
-
-
-// import renderMedia from "./renderMedia";
-
 class Lightbox {
-    // static init() {
-    //     const ph_medias = Array.from(document.querySelectorAll('.ph_media'));
-    //     console.log("hey" ,ph_medias[0])
-
-    //     ph_medias.forEach(ph_media => ph_media.addEventListener('click', e => {
-    //       e.preventDefault()
-    //       new Lightbox(e.currentTarget)
-    //     }))
-    // }
 
     constructor() {
 
       this.ph_medias = Array.from(document.querySelectorAll('.ph_media'));
+      console.log(this.ph_medias)
       
       this.currentMedia = 0 ;
       this.lengthItem = this.ph_medias.length ;
 
-      this.chargerEnvent();
+      this.chargerEvent();
       document.onkeydown = this.keyboard.bind(this)
 
     }
 
-    chargerEnvent(){
+    chargerEvent(){
       this.ph_medias.forEach( (media , index) => {
         media.addEventListener('click', e => {
           e.preventDefault()
@@ -63,7 +34,6 @@ class Lightbox {
         this.currentMedia = 0;
       }
       this.buildMedia(this.currentMedia)
-      // console.log(this.ph_medias[this.currentMedia] , this.currentMedia)
     }
 
     prev() {
@@ -72,7 +42,6 @@ class Lightbox {
         this.currentMedia = this.lengthItem - 1;
       }
       this.buildMedia(this.currentMedia)
-      // console.log(this.ph_medias[this.currentMedia] , this.currentMedia)
     }
 
     keyboard(e){
@@ -83,9 +52,6 @@ class Lightbox {
       } else if (e.key === 'ArrowRight') {
         this.next()
       }
-
-      //Ecoute levent clas
-        // --Rappenr next
     }
 
     buildMedia(index) { 
@@ -101,7 +67,6 @@ class Lightbox {
     buildDom(index) {
 
       const dom = document.getElementById('lightbox');
-      // console.log(this.ph_medias[this.currentMedia])
       
       dom.innerHTML = `<i class="lightbox_icon lightbox_icon__prev fas fa-chevron-left"></i>
   
