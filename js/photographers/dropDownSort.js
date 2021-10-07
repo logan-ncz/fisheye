@@ -1,5 +1,6 @@
 import renderMedia from "./renderMedia.js";
 import Likes from "./Likes.js";
+import Lightbox from "./lightbox.js";
 
 export default class dropDownMenu {
     dropDown(datas) {
@@ -92,6 +93,7 @@ export default class dropDownMenu {
             }
         })
         new Likes();
+        new Lightbox();
     }
 
 }
