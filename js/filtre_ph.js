@@ -19,8 +19,6 @@ export default function FilterFactory() {
                     this.activedRemove(myTEst)
                 }
 
-                //Fonction pour ajouter le tag sur tout les mêmes li
-        
                 this.sortDomArticle(articles);
             });
         })
