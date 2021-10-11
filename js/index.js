@@ -2,15 +2,11 @@ import apiFishEye from './apiFishEye.js';
 import FilterFactory from './filtre_ph.js'
 import Scroll from './scrollBtn.js'
 
-// let url = "bdd/FishEyeData.json";
-
 
 new apiFishEye().getDataFishEye().then( (datas) => {
 
 
     let photographes = datas.photographers;
-
-    
 
     let myHTML = '';
 
@@ -34,8 +30,6 @@ new apiFishEye().getDataFishEye().then( (datas) => {
             `<span class="phFilter" data-filter="${tag}" alt="tag">#${tag}</span>`).join(" ")}
         </nav>`
 
-      
-
         //Je crée mon HTML pour l'intégrer a la page
     
         sectionPhotographers.appendChild(articlePhotographers);
@@ -47,7 +41,6 @@ new apiFishEye().getDataFishEye().then( (datas) => {
     
 
     const MonObjectFilterFactory = FilterFactory();
-    // console.log(MonObjectFilterFactory);
     MonObjectFilterFactory.filterTags();
 
     const scroll = new Scroll

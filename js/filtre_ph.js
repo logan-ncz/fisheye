@@ -11,7 +11,6 @@ export default function FilterFactory() {
                 let myTEst = event.target.getAttribute("data-filter")
         
                 if (-1 === classValue.indexOf('activated')) {
-                    // event.target.classList.add('activated')
                     event.target.className = "activated phFilter"
                    
                     this.activedAdd(myTEst)
@@ -20,21 +19,20 @@ export default function FilterFactory() {
                     this.activedRemove(myTEst)
                 }
 
-                //Fonction ajouter le filtre sur tout les les mêmes li "Protrait"
+                //Fonction pour ajouter le tag sur tout les mêmes li
         
                 this.sortDomArticle(articles);
             });
         })
     }
 
-    //Function pour rendre tout les mêmes filtres en rouge
+    //Fonction pour rendre tout les mêmes filtres en rouge
     function activedAdd(test){
         let filtres = document.querySelectorAll('.phFilter');
 
         filtres.forEach( filtre => {
             let classValue = filtre.classList.value;
             if (-1 === classValue.indexOf('activated') && filtre.getAttribute("data-filter") === test ) {
-                // filtre.classList.add('activated')
                 filtre.className = "activated phFilter"
             }
         })
@@ -45,7 +43,6 @@ export default function FilterFactory() {
 
         filtres.forEach( filtre => {
             let classValue = filtre.classList.value;
-            console.log( classValue.indexOf('activated'))
             if (0 === classValue.indexOf('activated') && filtre.getAttribute("data-filter") === test ) {
                 filtre.classList.remove('activated')
             }
@@ -60,7 +57,6 @@ export default function FilterFactory() {
             filterSelected.push(currentFilter.getAttribute("data-filter"));
             
         });
-        console.log(filterSelected)
 
         return filterSelected;
     }

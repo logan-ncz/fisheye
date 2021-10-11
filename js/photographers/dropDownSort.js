@@ -3,6 +3,8 @@ import Likes from "./Likes.js";
 import Lightbox from "./lightbox.js";
 
 export default class dropDownMenu {
+
+    //Menu déroulant avec sélection du critère de tri
     dropDown(datas) {
         let dropDownMenu = document.getElementById('sort-wrapper');
         let dropDownMenuOpen = document.getElementsByClassName('sort-wrapper-open');
@@ -25,6 +27,8 @@ export default class dropDownMenu {
         });
     };
 
+
+    // Tri des médias
     sortMedias(datas) {
         let mediaArraySort = []
         let media = datas.media
@@ -66,6 +70,7 @@ export default class dropDownMenu {
         }));
     }
 
+    // Affichage des médias
     displaySortMedia(mediaArraySort) {
         mediaArraySort.forEach(element => {
             const UrlParam = new URLSearchParams(window.location.search);
@@ -95,6 +100,5 @@ export default class dropDownMenu {
         new Likes();
         new Lightbox();
     }
-
 }
 
